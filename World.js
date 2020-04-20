@@ -4,48 +4,82 @@
 //
 //====================================
 
+
 class World
 {
-constructor(){
-	this.lvlCollidableMeshList = [];	
+constructor()
+{	
 	this.groupLvl= new THREE.Group();
 	this.groupInstruments= new THREE.Group();
-	this.subgroupLvl=new THREE.Group();
-	this.groupLvl.add(this.subgroupLvl);
-	
-this.cube;
-	
-		
 }	
 	
-generate(){
-	
-			this.generateLvl();	
-			this.generateSkyBox();
-			
-								
+generate()
+{
+	this.generateLvl();			
+	this.generateSkyBox();								
 }	
 	
 generateLvl(){
 		
-	this.light = new THREE.AmbientLight( 0x5f58bf, 0.5 ); 
+	//this.light = new THREE.AmbientLight( 0x5f58bf, 0.5 ); 
+	this.light = new THREE.AmbientLight(0xffffff, 1);
 	this.groupLvl.add( this.light );
 	
-	this.pointLight = new THREE.PointLight(0xbfd7f2, 1, 150);
-	this.pointLight.position.set(0,10,0);
+	//this.pointLight = new THREE.PointLight(0xbfd7f2, 1, 150);
+	this.pointLight = new THREE.PointLight(0xffffff, 0.5, 300);
+	//this.pointLight.position.set(0,10,0);
+	this.pointLight.position.set(0,5,-5);
 	this.pointLight.castShadow=true;
-	this.pointLight.add( new THREE.Mesh( new THREE.SphereBufferGeometry( 0.5, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xbfd7f2 } ) ) );
+	//this.pointLight.add( new THREE.Mesh( new THREE.SphereBufferGeometry( 0.5, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xbfd7f2 } ) ) );
 	this.groupLvl.add(this.pointLight);
 		
-	this.createFloor();
-	//tutaj thisy wszystkie
-	this.createWall1();
-	this.createWall2();
-	this.createWall3();
-	this.createWall4();
+	// this.createFloor();
+	// //tutaj thisy wszystkie
+	// this.createWall1();
+	// this.createWall2();
+	// this.createWall3();
+	// this.createWall4();
 	//this.addInstruments(this.groupInstruments);
-	
-}					 
+	this.plane();
+	//decoration_loader('textures/room.glb');
+}		
+
+
+plane() {
+
+	//przydatne do określania skali, nie usuwać bo pobiję!!!!!!!!
+	var geometry = new THREE.BoxGeometry(1, 1, 1);
+	var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+	var cube_helper = new THREE.Mesh(geometry, material);
+	//cube_helper.position.set(0, -2.5, 0);
+	this.groupLvl.add(cube_helper);
+
+	this.decoration_loader('textures/room.glb');
+	//this.decoration_loader('textures/room_kopia.glb');
+}
+
+decoration_loader(source)
+	{
+		var loader = new THREE.GLTFLoader();
+		loader.load(
+			// resource URL
+			source,
+			// called when the resource is loaded
+			function (gltf) {
+				this.groupLvl.add(gltf.scene);		
+			},
+			// called while loading is progressing
+			function (xhr) {
+				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+			},
+			// called when loading has errors
+			function (error) {
+
+				console.log(error);
+
+			}
+		);
+	}
 
 
 
@@ -61,6 +95,7 @@ instruments()
 		instrument_loader('instruments/grand_piano.glb', cube3);
 		instrument_loader('instruments/drum_kit.glb', cube4);
 		instrument_loader('instruments/double_bass.glb',cube5);
+
 		}
 
 
@@ -137,6 +172,17 @@ generateSkyBox(){
 
 
 	}
+
+
+
+
+
+
+
+
+
+
+
 	
 
 createFloor(){

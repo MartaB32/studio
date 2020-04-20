@@ -37,8 +37,9 @@ Init(){
 	this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
 	//this.renderer.gammaOutput = true;
 	//this.renderer.gammaFactor = 1.0;
-	this.renderer.gammaFactor = 2.0;
-	this.renderer.gammaOutput = true;
+	//this.renderer.gammaFactor = 2.0;
+	//this.renderer.gammaOutput = true;
+	this.renderer.outputEncoding = THREE.sRGBEncoding;
 	
 	document.body.appendChild (this.renderer.domElement);
 	
