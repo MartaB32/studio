@@ -7,12 +7,9 @@ body {
 	line-height: 24px;
 }
 
+/*nie wiem po co to komu i dlaczego, ale dobra*/
 
-
-
-
-
-#screen{
+#screen {
 position: absolute;
 				width: 100%;
 				height: 100%;
@@ -32,13 +29,82 @@ position: absolute;
 	z-index: 1;
 	
 }
-.img {
-	position: relative;
-	margin: 0 auto;
-height: auto;
-width: 20%;
-top:10%;
 
+img
+{
+	top: 0;
+	right: 0;
+	position: fixed;
+}
 
+/*moje cssy*/
 
+#loading_screen
+{
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	text-align: center;
+	display: none;
+}
+
+body {
+        margin: 0;
+}
+
+canvas {
+    width: 100%;
+    height: 100%
+}
+
+.dropbtn {
+	background-image:url(menu.png);
+	width: 50;
+	height: 50;
+	border: none;
+	}
+
+.dropdown {
+	position: fixed;
+	top: 0;
+	right: 0;
+	}
+
+.dropdown-content {
+	display: none;
+	position: fixed;
+	right: 0;
+	background-color: #404040;
+	min-width: 250px;
+	height: 100%;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	scroll-behavior: smooth;
+}
+
+	.dropdown-content a {
+	margin: auto;
+	width: 225;
+	height: 230;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+#pianoroll
+{
+    display: none;
+    position: fixed;
+    bottom: 0; 
+	opacity: 1;
+    z-index: 2;
+	background-color: #404040;
+    width: 100%;
+    height: 25%;
 }
