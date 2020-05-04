@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<title></title>
+		<style>
+			audio
+			{
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<audio controls id="hat" src="Hat (9).wav"></audio>
+		<audio controls id="kick" src="Kick (13).wav"></audio>
+		<audio controls id="snare" src="Snare (8).wav"></audio>
+		<br>
+		<button onclick="onButtonClick('A')">Kick</button>
+		<button onclick="onButtonClick('B')">Snare</button>
+		<button onclick="onButtonClick('C')">Hat</button>
+		<button onclick="onButtonClick(' ')">empty</button>
+		<br>
+		<br>
+		<button onclick="onRemoveLastButtonClick()">Remove last</button>
+		<br>
+		<br>
+		<button onclick="onRemoveButtonClick()">Remove with index:</button>
+		<input type="number" id="user-input"></input>
+		<br>
+		<br>
+		<button onclick="onDisplayButtonClick()">Display</button>
+		<br>
+		<br>
+		<div id="display-object-id"></div>
+		<script src="./script.js"></script>
+	</body>
+</html>
