@@ -1,0 +1,66 @@
+	
+.pianoroll-box {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pianoroll-box input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.indicator-box {
+    cursor: default;
+}
+
+.pianoroll-box-check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 45px;
+    background-color: whitesmoke;
+}
+			
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 45px;
+    background-color: white;
+}
+
+.pianoroll-box:hover input ~ .pianoroll-box-check {
+    background-color: #ccc;
+}
+
+.pianoroll-box:hover input ~ .indicator {
+    background-color: white;
+}
+
+.pianoroll-box input:checked ~ .pianoroll-box-check {
+    background-color: #2196F3;
+}
+
+.pianoroll-box input:checked ~ .indicator {
+    background: url('./arrow.png');
+    background-size: 45px 25px;
+}
+			
+.pianoroll-box-check:after {
+    display: none;
+}
+
+.pianoroll-box .pianoroll-box-check:after {
+	display: none;
+}
