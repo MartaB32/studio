@@ -1,13 +1,6 @@
 document.innerHTML = "
 
-<html>
-	<head>
-	    <meta charset="utf-8">
-		<title>Pianoroll</title>
 		<link rel="stylesheet" href="styles.css">
-	</head>
-
-	<body>
 	<div style="display: none;">
 		<audio controls id="hat" src="./Hat(9).wav"></audio>
 		<audio controls id="kick" src="./Kick(13).wav"></audio>
@@ -131,6 +124,4 @@ document.innerHTML = "
 		Speed: 
 		<button onclick="changeTime()">Set</button>
 		<input type="number" id="time" value="500"></input>
-		
-	</body>
-</html>";
+";
