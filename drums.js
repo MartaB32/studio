@@ -1,3 +1,5 @@
+document.innerHTML = "czesc"; 
+
 document.innerHTML = "
 
 		<link rel="stylesheet" href="styles.css">
