@@ -1,10 +1,8 @@
 document.getElementById("drums").innerHTML = "
-
-		<link rel="stylesheet" href="styles.css">
 	<div style="display: none;">
-		<audio controls id="hat" src="./Hat(9).wav"></audio>
-		<audio controls id="kick" src="./Kick(13).wav"></audio>
-		<audio controls id="snare" src="./Snare(8).wav"></audio>
+		<audio controls id="hat" src="pianoroll/Hat(9).wav"></audio>
+		<audio controls id="kick" src="pianoroll/Kick(13).wav"></audio>
+		<audio controls id="snare" src="pianoroll/Snare(8).wav"></audio>
 		<br>
 		<button onclick="onButtonClick('A')">Kick</button>
 		<button onclick="onButtonClick('B')">Snare</button>
