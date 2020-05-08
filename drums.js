@@ -1,2 +1,2 @@
-document.getElementById("drums").innerHTML("czesc");
+document.getElementById("drums").innerHTML= "czesc";
 
