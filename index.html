@@ -24,7 +24,15 @@
 	
 	<title>WSN</title>
 
-
+    <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#drums").load("drum.html"); 
+    });    
+	$(function(){
+      $("#piano").load("piano.html"); 
+    });
+    </script>
 </head>
 
 <body>
@@ -78,9 +86,9 @@
 		<div id="pianoroll_instances">
 
 			<br>
-			<div id = "drum" w3-include-html="drum.html"></div>
+			<div id = "drums"></div>
 			<br><br>
-			<div id = "piano" w3-include-html = "piano.html"></div>
+			<div id = "piano"></div>
 			
 			
 			
