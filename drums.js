@@ -1,4 +1,4 @@
-document.innerHTML = "<!doctype html>
+document.innerHTML = "
 
 <html>
 	<head>
