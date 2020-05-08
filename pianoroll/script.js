@@ -10,7 +10,7 @@ function sample_play(sample,timeout) {
 
 var dupa = '';
 
-function onButtonClickA(character) {
+function onButtonClick(character) {
 	dupa = dupa + character;
 	updateDisplayElement();
 }
