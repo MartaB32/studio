@@ -10,20 +10,8 @@ function sample_play(sample,timeout) {
 
 var dupa = '';
 
-function onButtonClickA() {
-	dupa = dupa + 'A';
-	updateDisplayElement();
-}
-function onButtonClickB() {
-	dupa = dupa + 'B';
-	updateDisplayElement();
-}
-function onButtonClickC() {
-	dupa = dupa + 'C';
-	updateDisplayElement();
-}
-function onButtonClickEmpty() {
-	dupa = dupa + ' ';
+function onButtonClickA(character) {
+	dupa = dupa + character;
 	updateDisplayElement();
 }
 
