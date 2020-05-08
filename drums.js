@@ -3,7 +3,6 @@ var dupa = 'czesc("" ) bhj';
 document.getElementById("drum").innerHTML= dupa;
 
 document.getElementById("drum").innerHTML = "
-	<link type="text/css" rel="stylesheet" href="styles.css">
 
 	<div style="display: none;">
 		<audio controls id="hat" src="pianoroll/Hat(9).wav"></audio>
