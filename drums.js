@@ -1,0 +1,136 @@
+document.innerHTML = "<!doctype html>
+
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<title>Pianoroll</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+	<div style="display: none;">
+		<audio controls id="hat" src="./Hat(9).wav"></audio>
+		<audio controls id="kick" src="./Kick(13).wav"></audio>
+		<audio controls id="snare" src="./Snare(8).wav"></audio>
+		<br>
+		<button onclick="onButtonClick('A')">Kick</button>
+		<button onclick="onButtonClick('B')">Snare</button>
+		<button onclick="onButtonClick('C')">Hat</button>
+		<button onclick="onButtonClick(' ')">empty</button>
+		<br>
+		<br>
+		<button onclick="onRemoveLastButtonClick()">Remove last</button>
+		<br>
+		<br>
+		<button onclick="onRemoveButtonClick()">Remove with index:</button>
+		<input type="number" id="user-input"></input>
+		<br>
+		<br>
+		<button onclick="onDisplayButtonClick()">Display</button>
+		<br>
+		<br>
+		<div id="display-object-id"></div>
+		<script src="pianoroll/script.js"></script>
+	</div>
+
+		<!--current play indicator-->
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row0-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row1-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row2-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row3-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row4-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row5-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row6-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row7-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row8-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row9-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row10-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row11-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row12-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row13-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row14-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row15-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row16-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row17-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row18-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="row19-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<br>
+		
+		<!--pianoroll-->
+		<label class="pianoroll-box"><input type="checkbox" id="row0A" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row1A" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row2A" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row3A" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row4A" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row5A" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row6A" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row7A" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row8A" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row9A" name="row9A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row10A" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row11A" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row12A" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row13A" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row14A" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row15A" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row16A" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row17A" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row18A" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row19A" name="row9A"><span class="pianoroll-box-check"></span></label>
+		<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="row0B" name="row0B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row1B" name="row1B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row2B" name="row2B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row3B" name="row3B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row4B" name="row4B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row5B" name="row5B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row6B" name="row6B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row7B" name="row7B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row8B" name="row8B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row9B" name="row9B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row10B" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row11B" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row12B" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row13B" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row14B" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row15B" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row16B" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row17B" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row18B" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row19B" name="row9A"><span class="pianoroll-box-check"></span></label>
+		<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="row0C" name="row0C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row1C" name="row1C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row2C" name="row2C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row3C" name="row3C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row4C" name="row4C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row5C" name="row5C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row6C" name="row6C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row7C" name="row7C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row8C" name="row8C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row9C" name="row9C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row10C" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row11C" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row12C" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row13C" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row14C" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row15C" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row16C" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row17C" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row18C" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="row19C" name="row9A"><span class="pianoroll-box-check"></span></label>
+		
+		<br>
+		<br>
+		<button onclick="playFromArray()">Play</button>
+		<button onclick="stop()">Stop</button>
+		<input type="checkbox" id="loopEnabled"> Loop
+		<br>
+		Speed: 
+		<button onclick="changeTime()">Set</button>
+		<input type="number" id="time" value="500"></input>
+		
+	</body>
+</html>";
