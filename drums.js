@@ -1,6 +1,4 @@
-document.innerHTML = "czesc"; 
-
-document.innerHTML = "
+document.getElementById("drums").innerHTML = "
 
 		<link rel="stylesheet" href="styles.css">
 	<div style="display: none;">
