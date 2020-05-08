@@ -1,4 +1,4 @@
-var dupa = "czesc";
+var dupa = 'czesc';
 
 document.getElementById("drums").innerHTML= dupa;
 
