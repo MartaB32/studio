@@ -99,32 +99,32 @@
 				
 				
 	<script>
-		function sample_playPiano(samplePiano,timeoutPiano) {
-	var audioPiano = new Audio();
-	audioPiano.src = samplePiano.src;
-	setTimeoutPiano(function() {
-		audioPiano.play();
-		setTimeoutPiano(function (){samplePiano.currentTime=0;},timeoutPiano);
+		function sample_playPiano(sample,timeout) {
+	var audio = new Audio();
+	audio.src = sample.src;
+	setTimeout(function() {
+		audio.play();
+		setTimeout(function (){sample.currentTime=0;},timeout);
 		console.log(dupaPiano[i]);
-	},i*timeoutPiano);
+	},i*timeout);
 }
 
 var dupaPiano = '';
 
-function onButtonClickPiano(characterPiano) {
-	dupaPiano = dupaPiano + characterPiano;
+function onButtonClickPiano(character) {
+	dupaPiano = dupaPiano + character;
 	updateDisplayElementPiano();
 }
 
-function removeByIndexPiano(indexPiano) {
-	var arrayPiano = dupaPiano.split('');
-	arrayPiano.splice(indexPiano, 1);
-	dupaPiano = arrayPiano.join('');
+function removeByIndexPiano(index) {
+	var array = dupaPiano.split('');
+	array.splice(index, 1);
+	dupaPiano = array.join('');
 }
 
-function onRemoveButtonClickPiano(indexPiano) {
-	var indexPiano = document.getElementById("user-input").value;
-	removeByIndexPiano(indexPiano);
+function onRemoveButtonClickPiano(index) {
+	var index = document.getElementById("user-input").value;
+	removeByIndexPiano(index);
 	updateDisplayElementPiano();
 }
 
@@ -138,24 +138,24 @@ function updateDisplayElementPiano() {
 }
 
 function onDisplayButtonClickPiano() {
-	let samplePiano = document.getElementById("kick");
-	let sample1Piano = document.getElementById("snare");
-	let sample2Piano = document.getElementById("hat");
-	let timeoutPiano = 500;
+	let sample = document.getElementById("kick");
+	let sample1 = document.getElementById("snare");
+	let sample2 = document.getElementById("hat");
+	let timeout = 500;
 
 	for (i = 0; i < dupaPiano.length; ++i) {
 		switch (dupaPiano[i]) {
 			case 'A':
-				sample_playPiano(samplePiano,timeoutPiano);
+				sample_play(sample,timeout);
 				break;
 			case 'B':
-				sample_playPiano(sample1Piano,timeoutPiano);
+				sample_play(sample1,timeout);
 				break;
 			case 'C':
-				sample_playPiano(sample2Piano,timeoutPiano);
+				sample_play(sample2,timeout);
 				break;
 			default:
-				sample_playPiano
+				sample_play
 		}
 	}
 }
@@ -175,22 +175,22 @@ BPiano = document.getElementById("snare");
 CPiano = document.getElementById("hat");
 
 function changeTimePiano() {
-	let valuePiano = document.getElementById("time").value;
-	if (valuePiano <= 10) {
+	let value = document.getElementById("time").value;
+	if (value <= 10) {
 		alert('Value too low');
 	} else {
-		frameTimeoutPiano = valuePiano;
+		frameTimeoutPiano = value;
 	}
 }
 
-function playSampleInstantPiano(samplePiano) {
-	var audioPiano = new Audio();
-	audioPiano.src = samplePiano.src;
-	audioPiano.playPiano();
+function playSampleInstantPiano(sample) {
+	var audio = new Audio();
+	audio.src = sample.src;
+	audio.play();
 }
 
-function playInstrumentPiano(instrumentPiano) {
-	switch (instrumentPiano) {
+function playInstrumentPiano(instrument) {
+	switch (instrument) {
 		case 'A':
 			playSampleInstantPiano(APiano);
 			break;
@@ -201,7 +201,7 @@ function playInstrumentPiano(instrumentPiano) {
 			playSampleInstantPiano(CPiano);
 			break;
 		default:
-			console.log('instrument ' + instrumentPiano + ' not supported'); 
+			console.log('instrument ' + instrument + ' not supported'); 
 	}
 }
 
@@ -216,17 +216,17 @@ function stopPiano() {
 
 function clearIndicatorPiano () {
 	for(let i = 0; i < rowsCountPiano; i++) {
-		document.getElementById("rowPiano" + i + "-current").checked = false;
+		document.getElementById("row" + i + "-current").checked = false;
 	}
 }
 
-function moveIndicatorPiano(indexPiano) {
+function moveIndicatorPiano(index) {
 	clearIndicatorPiano();
-	document.getElementById("rowPiano" + indexPiano + "-current").checked = true;
+	document.getElementById("row" + index + "-current").checked = true;
 }
 
-function playRowRecursivePiano(whichRowPiano) {
-	if (whichRowPiano >= rowsCountPiano) {
+function playRowRecursivePiano(whichRow) {
+	if (whichRow >= rowsCountPiano) {
 		if(document.getElementById("loopEnabled").checked) {
 			setTimeout(playRowRecursivePiano, frameTimeoutPiano, 0);
 		} else {
@@ -235,33 +235,33 @@ function playRowRecursivePiano(whichRowPiano) {
 		}
 	}
 	
-	moveIndicatorPiano(whichRowPiano);
+	moveIndicatorPiano(whichRow);
 	
-	let rowValuesPiano = getRowValuesPiano(whichRowPiano, false);
-	for(let i = 0; i < rowValuesPiano.length; i++) {
-		playInstrumentPiano(rowValuesPiano[i]);
+	let rowValues = getRowValuesPiano(whichRow, false);
+	for(let i = 0; i < rowValues.length; i++) {
+		playInstrumentPiano(rowValues[i]);
 	}
 	if (!stoppedPiano) {
-		setTimeout(playRowRecursivePiano, frameTimeoutPiano, whichRowPianoPiano + 1);
+		setTimeout(playRowRecursivePiano, frameTimeoutPiano, whichRow + 1);
 	} else {
 		clearIndicatorPiano();
 		stoppedPiano = false;
 	}
 }
 
-function getRowValuesPiano(rowPiano, clearAfterPlayPiano) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
-	let valuesPiano = '';
+function getRowValuesPiano(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
+	let values = '';
 
 	for(let i = 0; i < instrumentsPiano.length; i++) {
-		let selectedPiano = document.getElementById("rowPiano" + rowPiano + instrumentsPiano[i]);
-		if (selectedPiano.checked) {
-			valuesPiano = valuesPiano + instrumentsPiano[i];
+		let selected = document.getElementById("rowPiano" + row + instrumentsPiano[i]);
+		if (selected.checked) {
+			values = values + instrumentsPiano[i];
 		}
 		if (clearAfterPlayPiano) {
-			selectedPiano.checked = false;
+			selected.checked = false;
 		}
 	}
-	return valuesPiano;
+	return values;
 }
 
 		</script>
