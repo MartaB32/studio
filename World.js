@@ -2,6 +2,12 @@ class World {
 	constructor() {
 		this.groupLvl = new THREE.Group();
 		this.groupInstruments = new THREE.Group();
+		this.loading_manager = new THREE.LoadingManager();
+		this.loading_manager.onLoad = function (){
+			//console.log('resources loaded');
+			//document.getElementById('loading_screen').style.display = "none";
+			$('#loading_screen').fadeOut(2000);
+		}
 	}
 
 	generate() {
@@ -36,9 +42,9 @@ class World {
 	}
 
 	room_loader(object, source) {
-		var loader = new THREE.GLTFLoader();
+		var loader = new THREE.GLTFLoader(this.loading_manager);
 
-		var dracoLoader = new THREE.DRACOLoader();
+		var dracoLoader = new THREE.DRACOLoader(this.loading_manager);
 		dracoLoader.decoderPath = 'js/libs/draco/';
 		loader.setDRACOLoader(dracoLoader);
 
@@ -56,6 +62,7 @@ class World {
 								o.receiveShadow = true;
 								o.castShadow = true;
 							}
+							//document.getElementById('loading_screen').style.display = "none";
 						}
 					);
 
@@ -63,8 +70,8 @@ class World {
 			// called while loading is progressing
 			function (xhr) {
 
-				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-
+				//console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+				
 			},
 			// called when loading has errors
 			function (error) {
@@ -80,10 +87,10 @@ class World {
 
 
 	instrument_loader(object, posX, posZ, source) {
-		var loader = new THREE.GLTFLoader();
+		var loader = new THREE.GLTFLoader(this.loading_manager);
 
 		//do zbadania, czy szybciej dziala
-		// var dracoLoader = new THREE.DRACOLoader();
+		// var dracoLoader = new THREE.DRACOLoader(this.loading_manager);
 		// dracoLoader.decoderPath='js/libs/draco/';
 		// loader.setDRACOLoader( dracoLoader );
 
@@ -107,7 +114,7 @@ class World {
 			},
 			// called while loading is progressing
 			function (xhr) {
-				console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+				//console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 			},
 			// called when loading has errors
 			function (error) {

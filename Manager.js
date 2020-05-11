@@ -1,5 +1,6 @@
 export default class Manager {
 	constructor() {
+
 		this._world = new World();
 		this._selector = new Selector();
 
@@ -38,6 +39,7 @@ export default class Manager {
 		this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
 		this.scene.add(this.camera);
 		this.renderer.render(this.scene, this.camera);
+
 	}
 
 	Load() {
