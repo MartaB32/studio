@@ -88,120 +88,180 @@
 		
 		<br>
 		<br>
-		<button onclick="playFromArray()">Play</button>
-		<button onclick="stop()">Stop</button>
+		<button onclick="playFromArrayPiano()">Play</button>
+		<button onclick="stopPiano()">Stop</button>
 		<input type="checkbox" id="loopEnabled"> Loop
 		<br>
 		Speed: 
-		<button onclick="changeTime()">Set</button>
+		<button onclick="changeTimePiano()">Set</button>
 		<input type="number" id="time" value="500"></input>
 				
 				
 				
 	<script>
-		
+		function sample_playPiano(samplePiano,timeoutPiano) {
+	var audioPiano = new Audio();
+	audioPiano.src = samplePiano.src;
+	setTimeoutPiano(function() {
+		audioPiano.play();
+		setTimeoutPiano(function (){samplePiano.currentTime=0;},timeoutPiano);
+		console.log(dupaPiano[i]);
+	},i*timeoutPiano);
+}
+
+var dupaPiano = '';
+
+function onButtonClickPiano(characterPiano) {
+	dupaPiano = dupaPiano + characterPiano;
+	updateDisplayElementPiano();
+}
+
+function removeByIndexPiano(indexPiano) {
+	var arrayPiano = dupaPiano.split('');
+	arrayPiano.splice(indexPiano, 1);
+	dupaPiano = arrayPiano.join('');
+}
+
+function onRemoveButtonClickPiano(indexPiano) {
+	var indexPiano = document.getElementById("user-input").value;
+	removeByIndexPiano(indexPiano);
+	updateDisplayElementPiano();
+}
+
+function onRemoveLastButtonClickPiano() {
+	removeByIndexPiano(dupaPiano.length - 1);
+	updateDisplayElementPiano();
+}
+
+function updateDisplayElementPiano() {
+	document.getElementById("display-object-id").innerHTML = dupaPiano;
+}
+
+function onDisplayButtonClickPiano() {
+	let samplePiano = document.getElementById("kick");
+	let sample1Piano = document.getElementById("snare");
+	let sample2Piano = document.getElementById("hat");
+	let timeoutPiano = 500;
+
+	for (i = 0; i < dupaPiano.length; ++i) {
+		switch (dupaPiano[i]) {
+			case 'A':
+				sample_playPiano(samplePiano,timeoutPiano);
+				break;
+			case 'B':
+				sample_playPiano(sample1Piano,timeoutPiano);
+				break;
+			case 'C':
+				sample_playPiano(sample2Piano,timeoutPiano);
+				break;
+			default:
+				sample_playPiano
+		}
+	}
+}
 
 
 
 
 
-frameTimeout = 500;
 
-stopped = false;
-rowsCount = 20;
-instruments = 'ABC';
-A = document.getElementById("kick");
-B = document.getElementById("snare");
-C = document.getElementById("hat");
+frameTimeoutPiano = 500;
 
-function changeTime() {
-	let value = document.getElementById("time").value;
-	if (value <= 10) {
+stoppedPiano = false;
+rowsCountPiano = 20;
+instrumentsPiano = 'ABC';
+APiano = document.getElementById("kick");
+BPiano = document.getElementById("snare");
+CPiano = document.getElementById("hat");
+
+function changeTimePiano() {
+	let valuePiano = document.getElementById("time").value;
+	if (valuePiano <= 10) {
 		alert('Value too low');
 	} else {
-		frameTimeout = value
+		frameTimeoutPiano = valuePiano;
 	}
 }
 
-function playSampleInstant(sample) {
-	var audio = new Audio();
-	audio.src = sample.src;
-	audio.play();
+function playSampleInstantPiano(samplePiano) {
+	var audioPiano = new Audio();
+	audioPiano.src = samplePiano.src;
+	audioPiano.playPiano();
 }
 
-function playInstrument(instrument) {
-	switch (instrument) {
+function playInstrumentPiano(instrumentPiano) {
+	switch (instrumentPiano) {
 		case 'A':
-			playSampleInstant(A);
+			playSampleInstantPiano(APiano);
 			break;
 		case 'B':
-			playSampleInstant(B);
+			playSampleInstantPiano(BPiano);
 			break;
 		case 'C':
-			playSampleInstant(C);
+			playSampleInstantPiano(CPiano);
 			break;
 		default:
-			console.log('instrument ' + instrument + ' not supported'); 
+			console.log('instrument ' + instrumentPiano + ' not supported'); 
 	}
 }
 
-function playFromArray() {
-	stopped = false;
-	playRowRecursive(0, true);
+function playFromArrayPiano() {
+	stoppedPiano = false;
+	playRowRecursivePiano(0, true);
 }
 
-function stop() {
-	stopped = true;
+function stopPiano() {
+	stoppedPiano = true;
 }
 
-function clearIndicator () {
-	for(let i = 0; i < rowsCount; i++) {
+function clearIndicatorPiano () {
+	for(let i = 0; i < rowsCountPiano; i++) {
 		document.getElementById("rowPiano" + i + "-current").checked = false;
 	}
 }
 
-function moveIndicator(index) {
-	clearIndicator();
-	document.getElementById("rowPiano" + index + "-current").checked = true;
+function moveIndicatorPiano(indexPiano) {
+	clearIndicatorPiano();
+	document.getElementById("rowPiano" + indexPiano + "-current").checked = true;
 }
 
-function playRowRecursive(whichRowPiano) {
-	if (whichRowPiano >= rowsCount) {
+function playRowRecursivePiano(whichRowPiano) {
+	if (whichRowPiano >= rowsCountPiano) {
 		if(document.getElementById("loopEnabled").checked) {
-			setTimeout(playRowRecursive, frameTimeout, 0);
+			setTimeout(playRowRecursivePiano, frameTimeoutPiano, 0);
 		} else {
-			clearIndicator();
+			clearIndicatorPiano();
 			return true;
 		}
 	}
 	
-	moveIndicator(whichRowPiano);
+	moveIndicatorPiano(whichRowPiano);
 	
-	let rowValues = getRowValues(whichRowPiano, false);
-	for(let i = 0; i < rowValues.length; i++) {
-		playInstrument(rowValues[i]);
+	let rowValuesPiano = getRowValuesPiano(whichRowPiano, false);
+	for(let i = 0; i < rowValuesPiano.length; i++) {
+		playInstrumentPiano(rowValuesPiano[i]);
 	}
-	if (!stopped) {
-		setTimeout(playRowRecursive, frameTimeout, whichRowPiano + 1);
+	if (!stoppedPiano) {
+		setTimeout(playRowRecursivePiano, frameTimeoutPiano, whichRowPianoPiano + 1);
 	} else {
-		clearIndicator();
-		stopped = false;
+		clearIndicatorPiano();
+		stoppedPiano = false;
 	}
 }
 
-function getRowValues(rowPiano, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
-	let values = '';
+function getRowValuesPiano(rowPiano, clearAfterPlayPiano) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
+	let valuesPiano = '';
 
-	for(let i = 0; i < instruments.length; i++) {
-		let selected = document.getElementById("rowPiano" + rowPiano + instruments[i]);
-		if (selected.checked) {
-			values = values + instruments[i];
+	for(let i = 0; i < instrumentsPiano.length; i++) {
+		let selectedPiano = document.getElementById("rowPiano" + rowPiano + instrumentsPiano[i]);
+		if (selectedPiano.checked) {
+			valuesPiano = valuesPiano + instrumentsPiano[i];
 		}
-		if (clearAfterPlay) {
-			selected.checked = false;
+		if (clearAfterPlayPiano) {
+			selectedPiano.checked = false;
 		}
 	}
-	return values;
+	return valuesPiano;
 }
 
 		</script>
