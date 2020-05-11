@@ -216,13 +216,13 @@ function stopPiano() {
 
 function clearIndicatorPiano () {
 	for(let i = 0; i < rowsCountPiano; i++) {
-		document.getElementById("row" + i + "-current").checked = false;
+		document.getElementById("rowPiano" + i + "-current").checked = false;
 	}
 }
 
 function moveIndicatorPiano(index) {
 	clearIndicatorPiano();
-	document.getElementById("row" + index + "-current").checked = true;
+	document.getElementById("rowPiano" + index + "-current").checked = true;
 }
 
 function playRowRecursivePiano(whichRow) {
