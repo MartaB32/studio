@@ -51,6 +51,14 @@ img
 	background-color: #202020;
 	z-index: 3;
 }
+
+#loading_percentage {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+}
+
 .loader {
 	position: fixed;
 	top: calc(50% - 60px);
@@ -80,6 +88,7 @@ canvas {
 
 .dropbtn {
 	background-image:url(GUI/dropdown.png);
+	cursor: pointer;
 	right: 0;
 	width: 50;
 	height: 50;
@@ -115,7 +124,10 @@ canvas {
 	display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+	cursor: pointer;
+	background-color: #ddd;
+}
 
 .show {display: block;}
 
@@ -133,6 +145,7 @@ canvas {
 
 #pianoroll_swipe
 {
+	cursor: pointer;
 	position: fixed;
 	width: 100%;
 	background-color: #404040;

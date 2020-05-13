@@ -9,13 +9,26 @@ document.body.appendChild(stats.domElement);
 manager.Init();
 manager.Load();
 
+let pianoroll = document.getElementById("pianoroll");
+
+pianoroll.onclick = function () {
+	if (pianoroll.style.height == "100%") {
+		manager._world.stop_render = true;
+	}
+	else {
+		manager._world.stop_render = false;
+	}
+}
 
 animate();
+
 function animate() {
 	requestAnimationFrame(animate);
-	stats.update();
-	manager.Update();
-
+	
+	if (manager._world.stop_render == false) {
+		stats.update();
+		manager.Update();
+	}
 }
 
 window.addEventListener('resize', function () {

@@ -167,6 +167,9 @@ class Selector {
 
 		// Toggle rotation bool for meshes that we clicked
 		if (intersects.length > 0) {
+			//zmiana kursora
+			$('html,body').css('cursor', 'pointer');
+
 			if (typeof this.object3 != 'undefined') {
 				if (this.object3.material.color.getHex() != 0x00FF00)
 					this.object3.material.visible = false;
@@ -187,16 +190,16 @@ class Selector {
 			if (this.click) {
 				if (this.object2.children[0].material.color.getHex() == 0x00FF00) {
 					this.object2.children[0].material.color.set(0xffff00);
-					this.instrument_counter--;
 
+					this.instrument_counter--;
 					if (this.instrument_counter < 1) {
 						document.getElementById("pianoroll").style.display = "none";
 					}
 				}
 				else {
 					this.object2.children[0].material.color.set(0x00FF00);
-					this.instrument_counter++;
 
+					this.instrument_counter++;
 					if (this.instrument_counter > 0) {
 						document.getElementById("pianoroll").style.display = "block";
 					}
@@ -210,6 +213,8 @@ class Selector {
 			}
 		}
 		else
+		{
+				$('html,body').css('cursor', 'default');
 
 			if (typeof this.object2 != 'undefined') {
 
@@ -221,6 +226,7 @@ class Selector {
 			}
 
 		this.click = false;
+		}
 	}
 	updateMouse(camera, delta, mouseMovement, renderer) {
 		this.mouse.x = (mouseMovement.x / renderer.domElement.clientWidth) * 2 - 1;

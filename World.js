@@ -3,10 +3,22 @@ class World {
 		this.groupLvl = new THREE.Group();
 		this.groupInstruments = new THREE.Group();
 		this.loading_manager = new THREE.LoadingManager();
+		this.loading_manager.onProgress = function (url, itemsLoaded, itemsTotal){
+			document.getElementById('loading_percentage').innerHTML = Math.round(itemsLoaded/itemsTotal*100) + '%';
+		}
 		this.loading_manager.onLoad = function (){
-			//console.log('resources loaded');
-			//document.getElementById('loading_screen').style.display = "none";
 			$('#loading_screen').fadeOut(2000);
+		}
+		this.stop_render = false;
+		let pianoroll = document.getElementById("pianoroll");
+		if(pianoroll.style.height=="100%")
+		{
+			console.log("działa");
+			this.stop_render = true;
+		}
+		else
+		{
+			this.stop_render = false;
 		}
 	}
 
@@ -59,8 +71,8 @@ class World {
 							object.add(gltf.scene);
 
 							if (o.isMesh) {
-								o.receiveShadow = true;
-								o.castShadow = true;
+								//o.receiveShadow = true;
+								//o.castShadow = true;
 							}
 							//document.getElementById('loading_screen').style.display = "none";
 						}
@@ -104,8 +116,8 @@ class World {
 						function (o) {
 
 							if (o.isMesh) {
-								o.receiveShadow = true;
-								o.castShadow = true;
+								//o.receiveShadow = true;
+								//o.castShadow = true;
 							}
 							//gltf.scene.position.set(posX, posY, posZ);
 							object.add(gltf.scene);
