@@ -111,21 +111,21 @@
 	setTimeout(function() {
 		audio.play();
 		setTimeout(function (){sample.currentTime=0;},timeout);
-		console.log(dupaBass[i]);
+		console.log(dupaBass.split(';')[i]);
 	},i*timeout);
 }
 
 var dupaBass = '';
 
 function onButtonClickBass(character) {
-	dupaBass = dupaBass + character;
+	dupaBass = dupaBass + character + ';';
 	updateDisplayElementBass();
 }
 
 function removeByIndexBass(index) {
-	var array = dupaBass.split('');
+	var array = dupaBass.split(';');
 	array.splice(index, 1);
-	dupaBass = array.join('');
+	dupaBass = array.join(';');
 }
 
 function onRemoveButtonClickBass(index) {
@@ -135,7 +135,7 @@ function onRemoveButtonClickBass(index) {
 }
 
 function onRemoveLastButtonClickBass() {
-	removeByIndexBass(dupaBass.length - 1);
+	removeByIndexBass(dupaBass.split(';').length - 1);
 	updateDisplayElementBass();
 }
 
@@ -148,9 +148,10 @@ function onDisplayButtonClickBass() {
 	let sample1 = document.getElementById("snare");
 	let sample2 = document.getElementById("hat");
 	let timeout = 500;
-
-	for (i = 0; i < dupaBass.length; ++i) {
-		switch (dupaBass[i]) {
+	
+	let dupaArray = dupaBass.split(';');
+	for (i = 0; i < dupaArray.length; ++i) {
+		switch (dupaArray[i]) {
 			case 'A':
 				sample_play(sample,timeout);
 				break;
