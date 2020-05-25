@@ -88,60 +88,61 @@
 		
 		<br>
 		<br>
-		<button onclick="playFromArray()">Play</button>
-		<button onclick="stop()">Stop</button>
+		<button onclick="playFromArrayDrum()">Play</button>
+		<button onclick="stopDrum()">Stop</button>
 		<input type="checkbox" id="loopEnabled"> Loop
 		<br>
 		Speed: 
-		<button onclick="changeTime()">Set</button>
+		<button onclick="changeTimeDrum()">Set</button>
 		<input type="number" id="time" value="500"></input>
 		
-	<script>function sample_play(sample,timeout) {
+	<script>
+		function sample_playDrum(sample,timeout) {
 	var audio = new Audio();
 	audio.src = sample.src;
 	setTimeout(function() {
 		audio.play();
 		setTimeout(function (){sample.currentTime=0;},timeout);
-		console.log(dupa[i]);
+		console.log(dupaDrum[i]);
 	},i*timeout);
 }
 
-var dupa = '';
+var dupaDrum = '';
 
-function onButtonClick(character) {
-	dupa = dupa + character;
-	updateDisplayElement();
+function onButtonClickDrum(character) {
+	dupaDrum = dupaDrum + character;
+	updateDisplayElementDrum();
 }
 
-function removeByIndex(index) {
-	var array = dupa.split('');
+function removeByIndexDrum(index) {
+	var array = dupaDrum.split('');
 	array.splice(index, 1);
-	dupa = array.join('');
+	dupaDrum = array.join('');
 }
 
-function onRemoveButtonClick(index) {
+function onRemoveButtonClickDrum(index) {
 	var index = document.getElementById("user-input").value;
-	removeByIndex(index);
-	updateDisplayElement();
+	removeByIndexDrum(index);
+	updateDisplayElementDrum();
 }
 
-function onRemoveLastButtonClick() {
-	removeByIndex(dupa.length - 1);
-	updateDisplayElement();
+function onRemoveLastButtonClickDrum() {
+	removeByIndexDrum(dupaDrum.length - 1);
+	updateDisplayElementDrum();
 }
 
-function updateDisplayElement() {
-	document.getElementById("display-object-id").innerHTML = dupa;
+function updateDisplayElementDrum() {
+	document.getElementById("display-object-id").innerHTML = dupaDrum;
 }
 
-function onDisplayButtonClick() {
+function onDisplayButtonClickDrum() {
 	let sample = document.getElementById("kick");
 	let sample1 = document.getElementById("snare");
 	let sample2 = document.getElementById("hat");
 	let timeout = 500;
 
-	for (i = 0; i < dupa.length; ++i) {
-		switch (dupa[i]) {
+	for (i = 0; i < dupaDrum.length; ++i) {
+		switch (dupaDrum[i]) {
 			case 'A':
 				sample_play(sample,timeout);
 				break;
@@ -162,97 +163,97 @@ function onDisplayButtonClick() {
 
 
 
-frameTimeout = 500;
+frameTimeoutDrum = 500;
 
-stopped = false;
-rowsCount = 20;
-instruments = 'ABC';
-A = document.getElementById("kick");
-B = document.getElementById("snare");
-C = document.getElementById("hat");
+stoppedDrum = false;
+rowsCountDrum = 20;
+instrumentsDrum = 'ABC';
+ADrum = document.getElementById("kick");
+BDrum = document.getElementById("snare");
+CDrum = document.getElementById("hat");
 
-function changeTime() {
+function changeTimeDrum() {
 	let value = document.getElementById("time").value;
 	if (value <= 10) {
 		alert('Value too low');
 	} else {
-		frameTimeout = value
+		frameTimeoutDrum = value;
 	}
 }
 
-function playSampleInstant(sample) {
+function playSampleInstantDrum(sample) {
 	var audio = new Audio();
 	audio.src = sample.src;
 	audio.play();
 }
 
-function playInstrument(instrument) {
+function playInstrumentDrum(instrument) {
 	switch (instrument) {
 		case 'A':
-			playSampleInstant(A);
+			playSampleInstantDrum(ADrum);
 			break;
 		case 'B':
-			playSampleInstant(B);
+			playSampleInstantDrum(BDrum);
 			break;
 		case 'C':
-			playSampleInstant(C);
+			playSampleInstantDrum(CDrum);
 			break;
 		default:
 			console.log('instrument ' + instrument + ' not supported'); 
 	}
 }
 
-function playFromArray() {
-	stopped = false;
-	playRowRecursive(0, true);
+function playFromArrayDrum() {
+	stoppedDrum = false;
+	playRowRecursiveDrum(0, true);
 }
 
-function stop() {
-	stopped = true;
+function stopDrum() {
+	stoppedDrum = true;
 }
 
-function clearIndicator () {
-	for(let i = 0; i < rowsCount; i++) {
-		document.getElementById("row" + i + "-current").checked = false;
+function clearIndicatorDrum () {
+	for(let i = 0; i < rowsCountDrum; i++) {
+		document.getElementById("rowDrum" + i + "-current").checked = false;
 	}
 }
 
-function moveIndicator(index) {
-	clearIndicator();
-	document.getElementById("row" + index + "-current").checked = true;
+function moveIndicatorDrum(index) {
+	clearIndicatorDrum();
+	document.getElementById("rowDrum" + index + "-current").checked = true;
 }
 
-function playRowRecursive(whichRow) {
-	if (whichRow >= rowsCount) {
+function playRowRecursiveDrum(whichRow) {
+	if (whichRow >= rowsCountDrum) {
 		if(document.getElementById("loopEnabled").checked) {
-			setTimeout(playRowRecursive, frameTimeout, 0);
+			setTimeout(playRowRecursiveDrum, frameTimeoutDrum, 0);
 		} else {
-			clearIndicator();
+			clearIndicatorDrum();
 			return true;
 		}
 	}
 	
-	moveIndicator(whichRow);
+	moveIndicatorDrum(whichRow);
 	
-	let rowValues = getRowValues(whichRow, false);
+	let rowValues = getRowValuesDrum(whichRow, false);
 	for(let i = 0; i < rowValues.length; i++) {
-		playInstrument(rowValues[i]);
+		playInstrumentDrum(rowValues[i]);
 	}
-	if (!stopped) {
-		setTimeout(playRowRecursive, frameTimeout, whichRow + 1);
+	if (!stoppedDrum) {
+		setTimeout(playRowRecursiveDrum, frameTimeoutDrum, whichRow + 1);
 	} else {
-		clearIndicator();
-		stopped = false;
+		clearIndicatorDrum();
+		stoppedDrum = false;
 	}
 }
 
-function getRowValues(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
+function getRowValuesDrum(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
 	let values = '';
 
-	for(let i = 0; i < instruments.length; i++) {
-		let selected = document.getElementById("row" + row + instruments[i]);
+	for(let i = 0; i < instrumentsDrum.length; i++) {
+		let selected = document.getElementById("rowDrum" + row + instrumentsDrum[i]);
 		if (selected.checked) {
-			values = values + instruments[i];
+			values = values + instrumentsDrum[i];
 		}
 		if (clearAfterPlay) {
 			selected.checked = false;
@@ -261,5 +262,4 @@ function getRowValues(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4...
 	return values;
 }
 
-</script>
-		
+		</script>
