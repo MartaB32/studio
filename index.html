@@ -16,7 +16,7 @@
 
 	<script src="./main.js" type="module"></script>
 	<script src="./GUI.js"></script>
-	<script src="include.js"></script>
+	<!-- <script src="include.js"></script> -->
 	
 	<link type="text/css" rel="stylesheet" href="main.css">
 		
@@ -27,10 +27,19 @@
     <script src="jquery.js"></script> 
     <script> 
     $(function(){
-      $("#drums").load("drum.html"); 
+      $("#drums").load("drums.html"); 
     });    
 	$(function(){
       $("#piano").load("piano.html"); 
+    });
+	$(function(){
+      $("#guitar").load("guitar.html"); 
+    });
+	$(function(){
+      $("#drum").load("drum.html"); 
+    });
+	$(function(){
+      $("#bass").load("bass.html"); 
     });
     </script>
 </head>
@@ -90,6 +99,12 @@
 			<div id = "drums"></div>
 			<br><br>
 			<div id = "piano"></div>
+			<br><br>
+			<div id = "guitar"></div>
+			<br><br>
+			<div id = "drum"></div>			
+			<br><br>
+			<div id = "bass"></div>
 			
 			
 			
@@ -115,7 +130,7 @@
 
 		</div>
 	</div>
-	<script>includeHTML();</script>
+	<!-- <script>includeHTML();</script> -->
 </body>
 
 </html>
