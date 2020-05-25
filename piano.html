@@ -103,52 +103,53 @@
 	</div>	
 				
 	<script>
-		function sample_playPiano(sample,timeout) {
+		function sample_playBass(sample,timeout) {
 	var audio = new Audio();
 	audio.src = sample.src;
 	setTimeout(function() {
 		audio.play();
 		setTimeout(function (){sample.currentTime=0;},timeout);
-		console.log(dupaPiano[i]);
+		console.log(dupaBass.split(';')[i]);
 	},i*timeout);
 }
 
-var dupaPiano = '';
+var dupaBass = '';
 
-function onButtonClickPiano(character) {
-	dupaPiano = dupaPiano + character;
-	updateDisplayElementPiano();
+function onButtonClickBass(character) {
+	dupaBass = dupaBass + character + ';';
+	updateDisplayElementBass();
 }
 
-function removeByIndexPiano(index) {
-	var array = dupaPiano.split('');
+function removeByIndexBass(index) {
+	var array = dupaBass.split(';');
 	array.splice(index, 1);
-	dupaPiano = array.join('');
+	dupaBass = array.join(';');
 }
 
-function onRemoveButtonClickPiano(index) {
+function onRemoveButtonClickBass(index) {
 	var index = document.getElementById("user-input").value;
-	removeByIndexPiano(index);
-	updateDisplayElementPiano();
+	removeByIndexBass(index);
+	updateDisplayElementBass();
 }
 
-function onRemoveLastButtonClickPiano() {
-	removeByIndexPiano(dupaPiano.length - 1);
-	updateDisplayElementPiano();
+function onRemoveLastButtonClickBass() {
+	removeByIndexBass(dupaBass.split(';').length - 1);
+	updateDisplayElementBass();
 }
 
-function updateDisplayElementPiano() {
-	document.getElementById("display-object-id").innerHTML = dupaPiano;
+function updateDisplayElementBass() {
+	document.getElementById("display-object-id").innerHTML = dupaBass;
 }
 
-function onDisplayButtonClickPiano() {
+function onDisplayButtonClickBass() {
 	let sample = document.getElementById("kick");
 	let sample1 = document.getElementById("snare");
 	let sample2 = document.getElementById("hat");
 	let timeout = 500;
-
-	for (i = 0; i < dupaPiano.length; ++i) {
-		switch (dupaPiano[i]) {
+	
+	let dupaArray = dupaBass.split(';');
+	for (i = 0; i < dupaArray.length; ++i) {
+		switch (dupaArray[i]) {
 			case 'A':
 				sample_play(sample,timeout);
 				break;
@@ -169,97 +170,97 @@ function onDisplayButtonClickPiano() {
 
 
 
-frameTimeoutPiano = 500;
+frameTimeoutBass = 500;
 
-stoppedPiano = false;
-rowsCountPiano = 20;
-instrumentsPiano = 'ABC';
-APiano = document.getElementById("kick");
-BPiano = document.getElementById("snare");
-CPiano = document.getElementById("hat");
+stoppedBass = false;
+rowsCountBass = 20;
+instrumentsBass = 'ABC';
+ABass = document.getElementById("kick");
+BBass = document.getElementById("snare");
+CBass = document.getElementById("hat");
 
-function changeTimePiano() {
+function changeTimeBass() {
 	let value = document.getElementById("time").value;
 	if (value <= 10) {
 		alert('Value too low');
 	} else {
-		frameTimeoutPiano = value;
+		frameTimeoutBass = value;
 	}
 }
 
-function playSampleInstantPiano(sample) {
+function playSampleInstantBass(sample) {
 	var audio = new Audio();
 	audio.src = sample.src;
 	audio.play();
 }
 
-function playInstrumentPiano(instrument) {
+function playInstrumentBass(instrument) {
 	switch (instrument) {
 		case 'A':
-			playSampleInstantPiano(APiano);
+			playSampleInstantBass(ABass);
 			break;
 		case 'B':
-			playSampleInstantPiano(BPiano);
+			playSampleInstantBass(BBass);
 			break;
 		case 'C':
-			playSampleInstantPiano(CPiano);
+			playSampleInstantBass(CBass);
 			break;
 		default:
 			console.log('instrument ' + instrument + ' not supported'); 
 	}
 }
 
-function playFromArrayPiano() {
-	stoppedPiano = false;
-	playRowRecursivePiano(0, true);
+function playFromArrayBass() {
+	stoppedBass = false;
+	playRowRecursiveBass(0, true);
 }
 
-function stopPiano() {
-	stoppedPiano = true;
+function stopBass() {
+	stoppedBass = true;
 }
 
-function clearIndicatorPiano () {
-	for(let i = 0; i < rowsCountPiano; i++) {
-		document.getElementById("rowPiano" + i + "-current").checked = false;
+function clearIndicatorBass () {
+	for(let i = 0; i < rowsCountBass; i++) {
+		document.getElementById("rowBass" + i + "-current").checked = false;
 	}
 }
 
-function moveIndicatorPiano(index) {
-	clearIndicatorPiano();
-	document.getElementById("rowPiano" + index + "-current").checked = true;
+function moveIndicatorBass(index) {
+	clearIndicatorBass();
+	document.getElementById("rowBass" + index + "-current").checked = true;
 }
 
-function playRowRecursivePiano(whichRow) {
-	if (whichRow >= rowsCountPiano) {
+function playRowRecursiveBass(whichRow) {
+	if (whichRow >= rowsCountBass) {
 		if(document.getElementById("loopEnabled").checked) {
-			setTimeout(playRowRecursivePiano, frameTimeoutPiano, 0);
+			setTimeout(playRowRecursiveBass, frameTimeoutBass, 0);
 		} else {
-			clearIndicatorPiano();
+			clearIndicatorBass();
 			return true;
 		}
 	}
 	
-	moveIndicatorPiano(whichRow);
+	moveIndicatorBass(whichRow);
 	
-	let rowValues = getRowValuesPiano(whichRow, false);
+	let rowValues = getRowValuesBass(whichRow, false);
 	for(let i = 0; i < rowValues.length; i++) {
-		playInstrumentPiano(rowValues[i]);
+		playInstrumentBass(rowValues[i]);
 	}
-	if (!stoppedPiano) {
-		setTimeout(playRowRecursivePiano, frameTimeoutPiano, whichRow + 1);
+	if (!stoppedBass) {
+		setTimeout(playRowRecursiveBass, frameTimeoutBass, whichRow + 1);
 	} else {
-		clearIndicatorPiano();
-		stoppedPiano = false;
+		clearIndicatorBass();
+		stoppedBass = false;
 	}
 }
 
-function getRowValuesPiano(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
+function getRowValuesBass(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
 	let values = '';
 
-	for(let i = 0; i < instrumentsPiano.length; i++) {
-		let selected = document.getElementById("rowPiano" + row + instrumentsPiano[i]);
+	for(let i = 0; i < instrumentsBass.length; i++) {
+		let selected = document.getElementById("rowBass" + row + instrumentsBass[i]);
 		if (selected.checked) {
-			values = values + instrumentsPiano[i];
+			values = values + instrumentsBass[i];
 		}
 		if (clearAfterPlay) {
 			selected.checked = false;
