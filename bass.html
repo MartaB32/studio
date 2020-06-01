@@ -1115,11 +1115,12 @@ function playRowRecursiveBass(whichRow) {
 
 function getRowValuesBass(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
 	let values = '';
-
-	for(let i = 0; i < instrumentsBass.length; i++) {
-		let selected = document.getElementById("rowBass" + row + instrumentsBass[i]);
+	let instrumentsBassTmp = instrumentsBass.split(';');
+	for(let i = 0; i < instrumentsBassTmp.length; i++) {
+		let selected = document.getElementById("rowBass" + row + instrumentsBassTmp[i]);
+		console.log('selected 111', selected);
 		if (selected.checked) {
-			values = values + instrumentsBass[i];
+			values = values + instrumentsBassTmp[i];
 		}
 		if (clearAfterPlay) {
 			selected.checked = false;
