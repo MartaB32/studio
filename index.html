@@ -116,11 +116,36 @@
 			</div>
 			</br>
 			</br>
-			<button value="Play">Play</button>
+			<button value="Play" onclick="playSelectedDupa()">Play</button>
 			</br>
 			</br>
 			</br>
 			</br>
+			<script>
+				function playSelectedDupa() {
+					if (document.getElementById("drumscheck").checked) {
+						// document.getElementById("bassbuttoniddupa").click();
+						playFromArray();
+					}
+					if (document.getElementById("guitarcheck").checked) {
+						// document.getElementById("bassbuttoniddupa").click();
+						playFromArrayGuitar();
+					}
+					if (document.getElementById("drumcheck").checked) {
+						// document.getElementById("bassbuttoniddupa").click();
+						playFromArrayDrum();
+					}
+					if (document.getElementById("basscheck").checked) {
+						// document.getElementById("bassbuttoniddupa").click();
+						playFromArrayBass();
+					}
+					if (document.getElementById("pianocheck").checked) {
+						// document.getElementById("bassbuttoniddupa").click();
+						playFromArrayPiano();
+					}
+				};
+			</script>
+			
 		</div>
 	</div>
 </body>
