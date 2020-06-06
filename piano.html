@@ -1,9 +1,11 @@
-<?php
-for($i=0;$i<20;$i++)
+<script>
+document.window.onload = function() {
+let html_text;
+for(let i=0;$i<20;$i++)
 {
-	echo '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'.$i.'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
+	html_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'.$i.'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
 }
-echo '<br>';
+html_text += '<br>';
 
 //pianoroll
 //65='A'
@@ -13,14 +15,14 @@ for($j=65;$j<91;$j++)
 	{
 		if($i<10)
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.(string)$j.'" name="rowPiano'.$i.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.(string)$j.'" name="rowPiano'.$i.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	echo '<br>';
+	html_text += '<br>';
 }
 
 //AA,AB itd.
@@ -30,14 +32,14 @@ for($j=65;$j<91;$j++)
 	{
 		if($i<10)
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.$i.'A'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.$i.'A'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	echo '<br>';
+	html_text += '<br>';
 }
 
 for($j=65;$j<91;$j++)
@@ -46,14 +48,14 @@ for($j=65;$j<91;$j++)
 	{
 		if($i<10)
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'B'.(string)$j.'" name="rowPiano'.$i.'B'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'B'.(string)$j.'" name="rowPiano'.$i.'B'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'B'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'B'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	echo '<br>';
+	html_text += '<br>';
 }
 
 for($j=65;$j<84;$j++)
@@ -62,17 +64,20 @@ for($j=65;$j<84;$j++)
 	{
 		if($i<10)
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.$i.'A'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.$i.'A'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			echo '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	echo '<br>';
+	html_text += '<br>';
 }
+console.log(html_text);
+document.getElementById("piano_body").insertAdjacentHTML("afterbegin",html_text);
+};
+</script>
 
-echo '		
 		<br>
 		<button onclick="playFromArrayPiano()">Play</button>
 		<button onclick="stopPiano()">Stop</button>
@@ -181,21 +186,21 @@ echo '
 	setTimeout(function() {
 		audio.play();
 		setTimeout(function (){sample.currentTime=0;},timeout);
-		console.log(dupaPiano.split(";")[i]);
+		console.log(dupaPiano.split(';')[i]);
 	},i*timeout);
 }
 
-var dupaPiano = "";
+var dupaPiano = '';
 
 function onButtonClickPiano(character) {
-	dupaPiano = dupaPiano + character + ";";
+	dupaPiano = dupaPiano + character + ';';
 	updateDisplayElementPiano();
 }
 
 function removeByIndexPiano(index) {
-	var array = dupaPiano.split(";");
+	var array = dupaPiano.split(';');
 	array.splice(index, 1);
-	dupaPiano = array.join(";");
+	dupaPiano = array.join(';');
 }
 
 function onRemoveButtonClickPiano(index) {
@@ -205,7 +210,7 @@ function onRemoveButtonClickPiano(index) {
 }
 
 function onRemoveLastButtonClickPiano() {
-	removeByIndexPiano(dupaPiano.split(";").length - 1);
+	removeByIndexPiano(dupaPiano.split(';').length - 1);
 	updateDisplayElementPiano();
 }
 
@@ -305,274 +310,274 @@ function onDisplayButtonClickPiano() {
 	let sample88 = document.getElementById("g8up");
 	let timeout = 500;
 	
-	let dupaArray = dupaPiano.split(";");
+	let dupaArray = dupaPiano.split(';');
 	for (i = 0; i < dupaArray.length; ++i) {
 		switch (dupaArray[i]) {
-			case "A":
+			case 'A':
 				sample_play(sample,timeout);
 				break;
-			case "B":
+			case 'B':
 				sample_play(sample1,timeout);
 				break;
-			case "C":
+			case 'C':
 				sample_play(sample2,timeout);
 				break;
-			case "D":
+			case 'D':
 				sample_play(sample3,timeout);
 				break;
-			case "E":
+			case 'E':
 				sample_play(sample4,timeout);
 				break;
-			case "F":
+			case 'F':
 				sample_play(sample5,timeout);
 				break;
-			case "G":
+			case 'G':
 				sample_play(sample6,timeout);
 				break;
-			case "H":
+			case 'H':
 				sample_play(sample7,timeout);
 				break;
-			case "I":
+			case 'I':
 				sample_play(sample8,timeout);
 				break;
-			case "J":
+			case 'J':
 				sample_play(sample9,timeout);
 				break;
-			case "K":
+			case 'K':
 				sample_play(sample10,timeout);
 				break;
-			case "L":
+			case 'L':
 				sample_play(sample11,timeout);
 				break;
-			case "M":
+			case 'M':
 				sample_play(sample12,timeout);
 				break;
-			case "N":
+			case 'N':
 				sample_play(sample13,timeout);
 				break;
-			case "O":
+			case 'O':
 				sample_play(sample14,timeout);
 				break;
-			case "P":
+			case 'P':
 				sample_play(sample15,timeout);
 				break;
-			case "R":
+			case 'R':
 				sample_play(sample16,timeout);
 				break;
-			case "S":
+			case 'S':
 				sample_play(sample17,timeout);
 				break;
-			case "T":
+			case 'T':
 				sample_play(sample18,timeout);
 				break;
-			case "U":
+			case 'U':
 				sample_play(sample19,timeout);
 				break;
-			case "W":
+			case 'W':
 				sample_play(sample20,timeout);
 				break;
-			case "X":
+			case 'X':
 				sample_play(sample21,timeout);
 				break;
-			case "Y":
+			case 'Y':
 				sample_play(sample22,timeout);
 				break;
-			case "Z":
+			case 'Z':
 				sample_play(sample23,timeout);
 				break;
-			case "AA":
+			case 'AA':
 				sample_play(sample24,timeout);
 				break;
-			case "AB":
+			case 'AB':
 				sample_play(sample25,timeout);
 				break;
-			case "AC":
+			case 'AC':
 				sample_play(sample26,timeout);
 				break;
-			case "AD":
+			case 'AD':
 				sample_play(sample27,timeout);
 				break;
-			case "AE":
+			case 'AE':
 				sample_play(sample28,timeout);
 				break;
-			case "AF":
+			case 'AF':
 				sample_play(sample29,timeout);
 				break;
-			case "AG":
+			case 'AG':
 				sample_play(sample30,timeout);
 				break;		
-			case "AH":
+			case 'AH':
 				sample_play(sample31,timeout);
 				break;
-			case "AI":
+			case 'AI':
 				sample_play(sample32,timeout);
 				break;
-			case "AJ":
+			case 'AJ':
 				sample_play(sample33,timeout);
 				break;
-			case "AK":
+			case 'AK':
 				sample_play(sample34,timeout);
 				break;
-			case "AL":
+			case 'AL':
 				sample_play(sample35,timeout);
 				break;
-			case "AM":
+			case 'AM':
 				sample_play(sample36,timeout);
 				break;
-			case "AN":
+			case 'AN':
 				sample_play(sample37,timeout);
 				break;
-			case "AO":
+			case 'AO':
 				sample_play(sample38,timeout);
 				break;
-			case "AP":
+			case 'AP':
 				sample_play(sample39,timeout);
 				break;
-			case "AR":
+			case 'AR':
 				sample_play(sample40,timeout);
 				break;
-			case "AS":
+			case 'AS':
 				sample_play(sample41,timeout);
 				break;
-			case "AT":
+			case 'AT':
 				sample_play(sample42,timeout);
 				break;
-			case "AU":
+			case 'AU':
 				sample_play(sample43,timeout);
 				break;
-			case "AW":
+			case 'AW':
 				sample_play(sample44,timeout);
 				break;
-			case "AX":
+			case 'AX':
 				sample_play(sample45,timeout);
 				break;
-			case "AY":
+			case 'AY':
 				sample_play(sample46,timeout);
 				break;
-			case "AZ":
+			case 'AZ':
 				sample_play(sample47,timeout);
 				break;
-			case "BA":
+			case 'BA':
 				sample_play(sample48,timeout);
 				break;
-			case "BB":
+			case 'BB':
 				sample_play(sample49,timeout);
 				break;
-			case "BC":
+			case 'BC':
 				sample_play(sample50,timeout);
 				break;
-			case "BD":
+			case 'BD':
 				sample_play(sample51,timeout);
 				break;
-			case "BE":
+			case 'BE':
 				sample_play(sample52,timeout);
 				break;
-			case "BF":
+			case 'BF':
 				sample_play(sample53,timeout);
 				break;
-			case "BG":
+			case 'BG':
 				sample_play(sample54,timeout);
 				break;
-			case "BH":
+			case 'BH':
 				sample_play(sample55,timeout);
 				break;
-			case "BI":
+			case 'BI':
 				sample_play(sample56,timeout);
 				break;
-			case "BJ":
+			case 'BJ':
 				sample_play(sample57,timeout);
 				break;
-			case "BK":
+			case 'BK':
 				sample_play(sample58,timeout);
 				break;
-			case "BL":
+			case 'BL':
 				sample_play(sample59,timeout);
 				break;
-			case "BM":
+			case 'BM':
 				sample_play(sample60,timeout);
 				break;
-			case "BN":
+			case 'BN':
 				sample_play(sample61,timeout);
 				break;			
-			case "BO":
+			case 'BO':
 				sample_play(sample62,timeout);
 				break;
-			case "BP":
+			case 'BP':
 				sample_play(sample63,timeout);
 				break;
-			case "BR":
+			case 'BR':
 				sample_play(sample64,timeout);
 				break;
-			case "BS":
+			case 'BS':
 				sample_play(sample65,timeout);
 				break;
-			case "BT":
+			case 'BT':
 				sample_play(sample66,timeout);
 				break;
-			case "BU":
+			case 'BU':
 				sample_play(sample67,timeout);
 				break;
-			case "BW":
+			case 'BW':
 				sample_play(sample68,timeout);
 				break;
-			case "BX":
+			case 'BX':
 				sample_play(sample69,timeout);
 				break;
-			case "BY":
+			case 'BY':
 				sample_play(sample70,timeout);
 				break;
-			case "BZ":
+			case 'BZ':
 				sample_play(sample71,timeout);
 				break;
-			case "CA":
+			case 'CA':
 				sample_play(sample72,timeout);
 				break;
-			case "CB":
+			case 'CB':
 				sample_play(sample73,timeout);
 				break;
-			case "CC":
+			case 'CC':
 				sample_play(sample74,timeout);
 				break;
-			case "CD":
+			case 'CD':
 				sample_play(sample75,timeout);
 				break;
-			case "CE":
+			case 'CE':
 				sample_play(sample76,timeout);
 				break;
-			case "CF":
+			case 'CF':
 				sample_play(sample77,timeout);
 				break;
-			case "CG":
+			case 'CG':
 				sample_play(sample78,timeout);
 				break;
-			case "CH":
+			case 'CH':
 				sample_play(sample79,timeout);
 				break;
-			case "CI":
+			case 'CI':
 				sample_play(sample80,timeout);
 				break;
-			case "CJ":
+			case 'CJ':
 				sample_play(sample81,timeout);
 				break;
-			case "CK":
+			case 'CK':
 				sample_play(sample82,timeout);
 				break;
-			case "CL":
+			case 'CL':
 				sample_play(sample83,timeout);
 				break;
-			case "CM":
+			case 'CM':
 				sample_play(sample84,timeout);
 				break;
-			case "CN":
+			case 'CN':
 				sample_play(sample85,timeout);
 				break;
-			case "CO":
+			case 'CO':
 				sample_play(sample86,timeout);
 				break;
-			case "CP":
+			case 'CP':
 				sample_play(sample87,timeout);
 				break;
-			case "CR":
+			case 'CR':
 				sample_play(sample88,timeout);
 				break;
 			default:
@@ -590,7 +595,7 @@ frameTimeoutPiano = 500;
 
 stoppedPiano = false;
 rowsCountPiano = 20;
-instrumentsPiano = "A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;R;S;T;U;W;X;Y;Z;AA;AB;AC;AD;AE;AF;AG;AH;AI;AJ;AK;AL;AM;AN;AO;AP;AR;AS;AT;AU;AW;AX;AY;AZ;BA;BB;BC;BD;BE;BF;BG;BH;BI;BJ;BK;BL;BM;BN;BO;BP;BR;BS;BT;BU;BW;BX;BY;BZ;CA;CB;CC;CD;CE;CF;CG;CH;CI;CJ;CK;CL;CM;CN;CO;CP;CR";
+instrumentsPiano = 'A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;R;S;T;U;W;X;Y;Z;AA;AB;AC;AD;AE;AF;AG;AH;AI;AJ;AK;AL;AM;AN;AO;AP;AR;AS;AT;AU;AW;AX;AY;AZ;BA;BB;BC;BD;BE;BF;BG;BH;BI;BJ;BK;BL;BM;BN;BO;BP;BR;BS;BT;BU;BW;BX;BY;BZ;CA;CB;CC;CD;CE;CF;CG;CH;CI;CJ;CK;CL;CM;CN;CO;CP;CR';
 APiano = document.getElementById("a1");
 BPiano = document.getElementById("a1up");
 CPiano = document.getElementById("a2");
@@ -684,7 +689,7 @@ CRPiano = document.getElementById("g8up");
 function changeTimePiano() {
 	let value = document.getElementById("time").value;
 	if (value <= 10) {
-		alert("Value too low");
+		alert('Value too low');
 	} else {
 		frameTimeoutPiano = value;
 	}
@@ -698,275 +703,275 @@ function playSampleInstantPiano(sample) {
 
 function playInstrumentPiano(instrument) {
 	switch (instrument) {
-		case "A":
+		case 'A':
 				playSampleInstantPiano(APiano);
 				break;
-			case "B":
+			case 'B':
 				playSampleInstantPiano(BPiano);
 				break;
-			case "C":
+			case 'C':
 				playSampleInstantPiano(CPiano);
 				break;
-			case "D":
+			case 'D':
 				playSampleInstantPiano(DPiano);
 				break;
-			case "E":
+			case 'E':
 				playSampleInstantPiano(EPiano);
 				break;
-			case "F":
+			case 'F':
 				playSampleInstantPiano(FPiano);
 				break;
-			case "G":
+			case 'G':
 				playSampleInstantPiano(GPiano);
 				break;
-			case "H":
+			case 'H':
 				playSampleInstantPiano(HPiano);
 				break;
-			case "I":
+			case 'I':
 				playSampleInstantPiano(IPiano);
 				break;
-			case "J":
+			case 'J':
 				playSampleInstantPiano(JPiano);
 				break;
-			case "K":
+			case 'K':
 				playSampleInstantPiano(KPiano);
 				break;
-			case "L":
+			case 'L':
 				playSampleInstantPiano(LPiano);
 				break;
-			case "M":
+			case 'M':
 				playSampleInstantPiano(MPiano);
 				break;
-			case "N":
+			case 'N':
 				playSampleInstantPiano(NPiano);
 				break;
-			case "O":
+			case 'O':
 				playSampleInstantPiano(OPiano);
 				break;
-			case "P":
+			case 'P':
 				playSampleInstantPiano(PPiano);
 				break;
-			case "R":
+			case 'R':
 				playSampleInstantPiano(RPiano);
 				break;
-			case "S":
+			case 'S':
 				playSampleInstantPiano(SPiano);
 				break;
-			case "T":
+			case 'T':
 				playSampleInstantPiano(TPiano);
 				break;
-			case "U":
+			case 'U':
 				playSampleInstantPiano(UPiano);
 				break;
-			case "W":
+			case 'W':
 				playSampleInstantPiano(WPiano);
 				break;
-			case "X":
+			case 'X':
 				playSampleInstantPiano(XPiano);
 				break;
-			case "Y":
+			case 'Y':
 				playSampleInstantPiano(YPiano);
 				break;
-			case "Z":
+			case 'Z':
 				playSampleInstantPiano(ZPiano);
 				break;
-			case "AA":
+			case 'AA':
 				playSampleInstantPiano(AAPiano);
 				break;
-			case "AB":
+			case 'AB':
 				playSampleInstantPiano(ABPiano);
 				break;
-			case "AC":
+			case 'AC':
 				playSampleInstantPiano(ACPiano);
 				break;
-			case "AD":
+			case 'AD':
 				playSampleInstantPiano(ADPiano);
 				break;
-			case "AE":
+			case 'AE':
 				playSampleInstantPiano(AEPiano);
 				break;
-			case "AF":
+			case 'AF':
 				playSampleInstantPiano(AFPiano);
 				break;
-			case "AG":
+			case 'AG':
 				playSampleInstantPiano(AGPiano);
 				break;		
-			case "AH":
+			case 'AH':
 				playSampleInstantPiano(AHPiano);
 				break;
-			case "AI":
+			case 'AI':
 				playSampleInstantPiano(AIPiano);
 				break;
-			case "AJ":
+			case 'AJ':
 				playSampleInstantPiano(AJPiano);
 				break;
-			case "AK":
+			case 'AK':
 				playSampleInstantPiano(AKPiano);
 				break;
-			case "AL":
+			case 'AL':
 				playSampleInstantPiano(ALPiano);
 				break;
-			case "AM":
+			case 'AM':
 				playSampleInstantPiano(AMPiano);
 				break;
-			case "AN":
+			case 'AN':
 				playSampleInstantPiano(ANPiano);
 				break;
-			case "AO":
+			case 'AO':
 				playSampleInstantPiano(AOPiano);
 				break;
-			case "AP":
+			case 'AP':
 				playSampleInstantPiano(APPiano);
 				break;
-			case "AR":
+			case 'AR':
 				playSampleInstantPiano(ARPiano);
 				break;
-			case "AS":
+			case 'AS':
 				playSampleInstantPiano(ASPiano);
 				break;
-			case "AT":
+			case 'AT':
 				playSampleInstantPiano(ATPiano);
 				break;
-			case "AU":
+			case 'AU':
 				playSampleInstantPiano(AUPiano);
 				break;
-			case "AW":
+			case 'AW':
 				playSampleInstantPiano(AWPiano);
 				break;
-			case "AX":
+			case 'AX':
 				playSampleInstantPiano(AXPiano);
 				break;
-			case "AY":
+			case 'AY':
 				playSampleInstantPiano(AYPiano);
 				break;
-			case "AZ":
+			case 'AZ':
 				playSampleInstantPiano(AZPiano);
 				break;
-			case "BA":
+			case 'BA':
 				playSampleInstantPiano(BAPiano);
 				break;
-			case "BB":
+			case 'BB':
 				playSampleInstantPiano(BBPiano);
 				break;
-			case "BC":
+			case 'BC':
 				playSampleInstantPiano(BCPiano);
 				break;
-			case "BD":
+			case 'BD':
 				playSampleInstantPiano(BDPiano);
 				break;
-			case "BE":
+			case 'BE':
 				playSampleInstantPiano(BEPiano);
 				break;
-			case "BF":
+			case 'BF':
 				playSampleInstantPiano(BFPiano);
 				break;
-			case "BG":
+			case 'BG':
 				playSampleInstantPiano(BGPiano);
 				break;
-			case "BH":
+			case 'BH':
 				playSampleInstantPiano(BHPiano);
 				break;
-			case "BI":
+			case 'BI':
 				playSampleInstantPiano(BIPiano);
 				break;
-			case "BJ":
+			case 'BJ':
 				playSampleInstantPiano(BJPiano);
 				break;
-			case "BK":
+			case 'BK':
 				playSampleInstantPiano(BKPiano);
 				break;
-			case "BL":
+			case 'BL':
 				playSampleInstantPiano(BLPiano);
 				break;
-			case "BM":
+			case 'BM':
 				playSampleInstantPiano(BMPiano);
 				break;
-			case "BN":
+			case 'BN':
 				playSampleInstantPiano(BNPiano);
 				break;			
-			case "BO":
+			case 'BO':
 				playSampleInstantPiano(BOPiano);
 				break;
-			case "BP":
+			case 'BP':
 				playSampleInstantPiano(BPPiano);
 				break;
-			case "BR":
+			case 'BR':
 				playSampleInstantPiano(BRPiano);
 				break;
-			case "BS":
+			case 'BS':
 				playSampleInstantPiano(BSPiano);
 				break;
-			case "BT":
+			case 'BT':
 				playSampleInstantPiano(BTPiano);
 				break;
-			case "BU":
+			case 'BU':
 				playSampleInstantPiano(BUPiano);
 				break;
-			case "BW":
+			case 'BW':
 				playSampleInstantPiano(BWPiano);
 				break;
-			case "BX":
+			case 'BX':
 				playSampleInstantPiano(BXPiano);
 				break;
-			case "BY":
+			case 'BY':
 				playSampleInstantPiano(BYPiano);
 				break;
-			case "BZ":
+			case 'BZ':
 				playSampleInstantPiano(BZPiano);
 				break;
-			case "CA":
+			case 'CA':
 				playSampleInstantPiano(CAPiano);
 				break;
-			case "CB":
+			case 'CB':
 				playSampleInstantPiano(CBPiano);
 				break;
-			case "CC":
+			case 'CC':
 				playSampleInstantPiano(CCPiano);
 				break;
-			case "CD":
+			case 'CD':
 				playSampleInstantPiano(CDPiano);
 				break;
-			case "CE":
+			case 'CE':
 				playSampleInstantPiano(CEPiano);
 				break;
-			case "CF":
+			case 'CF':
 				playSampleInstantPiano(CFPiano);
 				break;
-			case "CG":
+			case 'CG':
 				playSampleInstantPiano(CGPiano);
 				break;
-			case "CH":
+			case 'CH':
 				playSampleInstantPiano(CHPiano);
 				break;
-			case "CI":
+			case 'CI':
 				playSampleInstantPiano(CIPiano);
 				break;
-			case "CJ":
+			case 'CJ':
 				playSampleInstantPiano(CJPiano);
 				break;
-			case "CK":
+			case 'CK':
 				playSampleInstantPiano(CKPiano);
 				break;
-			case "CL":
+			case 'CL':
 				playSampleInstantPiano(CLPiano);
 				break;
-			case "CM":
+			case 'CM':
 				playSampleInstantPiano(CMPiano);
 				break;
-			case "CN":
+			case 'CN':
 				playSampleInstantPiano(CNPiano);
 				break;
-			case "CO":
+			case 'CO':
 				playSampleInstantPiano(COPiano);
 				break;
-			case "CP":
+			case 'CP':
 				playSampleInstantPiano(CPPiano);
 				break;
-			case "CR":
+			case 'CR':
 				playSampleInstantPiano(CRPiano);
 				break;
 		default:
-			console.log("instrument " + instrument + " not supported"); 
+			console.log('instrument ' + instrument + ' not supported'); 
 	}
 }
 
@@ -1014,12 +1019,12 @@ function playRowRecursivePiano(whichRow) {
 	}
 }
 
-function getRowValuesPiano(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. "AB", "C", ""
-	let values = "";
-	let instrumentsPianoTmp = instrumentsPiano.split(";");
+function getRowValuesPiano(row, clearAfterPlay) { // row = ktora kolumna, np. 1, 4..., zwraca co tam jest zaznaczone w postaci np. 'AB', 'C', ''
+	let values = '';
+	let instrumentsPianoTmp = instrumentsPiano.split(';');
 	for(let i = 0; i < instrumentsPianoTmp.length; i++) {
 		let selected = document.getElementById("rowPiano" + row + instrumentsPianoTmp[i]);
-		console.log("selected 111", selected);
+		console.log('selected 111', selected);
 		if (selected.checked) {
 			values = values + instrumentsPianoTmp[i];
 		}
@@ -1031,6 +1036,3 @@ function getRowValuesPiano(row, clearAfterPlay) { // row = ktora kolumna, np. 1,
 }
 
 		</script>
-		
-		';
-		?>
