@@ -1,76 +1,76 @@
 <div id="piano_body"></div>
 
 <script>
-document.window.onload = function() {
+document.onload = function() {
 let html_text;
-for(let i=0;$i<20;$i++)
+for(let i=0;i<20;i++)
 {
-	html_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'.$i.'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
+	html_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
 }
 html_text += '<br>';
 
 //pianoroll
 //65='A'
-for($j=65;$j<91;$j++)
+for(let j=65;j<91;j++)
 {
-	for($i=0;$i<20;$i++)
+	for(let i=0;i<20;i++)
 	{
-		if($i<10)
+		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.(string)$j.'" name="rowPiano'.$i.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
 	html_text += '<br>';
 }
 
 //AA,AB itd.
-for($j=65;$j<91;$j++)
+for(let j=65;j<91;j++)
 {
-	for($i=0;$i<20;$i++)
+	for(let i=0;i<20;i++)
 	{
-		if($i<10)
+		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.$i.'A'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
 	html_text += '<br>';
 }
 
-for($j=65;$j<91;$j++)
+for(let j=65;j<91;j++)
 {
-	for($i=0;$i<20;$i++)
+	for(let i=0;i<20;i++)
 	{
-		if($i<10)
+		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'B'.(string)$j.'" name="rowPiano'.$i.'B'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'B'+String.fromCharCode(j)+'" name="rowPiano'+i+'B'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'B'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'B'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
 	html_text += '<br>';
 }
 
-for($j=65;$j<84;$j++)
+for(let j=65;j<84;j++)
 {
-	for($i=0;$i<20;$i++)
+	for(let i=0;i<20;i++)
 	{
-		if($i<10)
+		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.$i.'A'.(string)$j.'"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'.$i.'A'.(string)$j.'" name="rowPiano'.($i-10).'A"><span class="pianoroll-box-check"></span></label>';
+			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
 	html_text += '<br>';
