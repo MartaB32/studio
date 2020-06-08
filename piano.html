@@ -1,13 +1,12 @@
-<div id="piano_body"></div>
+<span id="piano_body"></span>
 
 <script>
-document.onload = function() {
-let html_text;
+let piano_body_text = '';
 for(let i=0;i<20;i++)
 {
-	html_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
+	piano_body_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
 }
-html_text += '<br>';
+piano_body_text += '<br>';
 
 //pianoroll
 //65='A'
@@ -17,14 +16,14 @@ for(let j=65;j<91;j++)
 	{
 		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	html_text += '<br>';
+	piano_body_text += '<br>';
 }
 
 //AA,AB itd.
@@ -34,14 +33,14 @@ for(let j=65;j<91;j++)
 	{
 		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	html_text += '<br>';
+	piano_body_text += '<br>';
 }
 
 for(let j=65;j<91;j++)
@@ -50,14 +49,14 @@ for(let j=65;j<91;j++)
 	{
 		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'B'+String.fromCharCode(j)+'" name="rowPiano'+i+'B'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'B'+String.fromCharCode(j)+'" name="rowPiano'+i+'B'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'B'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'B'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	html_text += '<br>';
+	piano_body_text += '<br>';
 }
 
 for(let j=65;j<84;j++)
@@ -66,18 +65,18 @@ for(let j=65;j<84;j++)
 	{
 		if(i<10)
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
-			html_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+'A'+String.fromCharCode(j)+'" name="rowPiano'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
 		}
 	}
-	html_text += '<br>';
+	piano_body_text += '<br>';
 }
-console.log(html_text);
-document.getElementById("piano_body").insertAdjacentHTML("afterbegin",html_text);
-};
+
+document.getElementById("piano_body").insertAdjacentHTML("afterbegin", piano_body_text);
+
 </script>
 
 		<br>
