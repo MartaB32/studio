@@ -2,6 +2,8 @@
 
 <script>
 let guitar_body_text = '';
+
+guitar_body_text += '<span class="channel_description" style="visibility: hidden"></span>';
 for(let i=0;i<20;i++)
 {
 	guitar_body_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
@@ -23,13 +25,11 @@ for(let j=65;j<89;j++)
 		{
 			if(i==0)
 			{
-				guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+guitar_name[guitar_pointer]+'</span></label>';
+				guitar_body_text += '<span class="channel_description">'+guitar_name[guitar_pointer]+'</span>';
 				guitar_pointer++;
 			}
-			else
-			{
+
 				guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
 		}
 		else
 		{

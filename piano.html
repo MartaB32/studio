@@ -2,14 +2,15 @@
 
 <script>
 let piano_body_text = '';
+
+piano_body_text += '<span class="channel_description" style="visibility: hidden"></span>';
 for(let i=0;i<20;i++)
 {
 	piano_body_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowPiano'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
 }
 piano_body_text += '<br>';
 
-//pianoroll 26 alfa, 89
-84
+//pianoroll
 let piano_name = [											  "G1","G1 up","A1","A1 up","B1",
 				  "C2","C2 up","D2","D2 up","E2","F2","F2 up","G2","G2 up","A2","A2 up","B2",
 				  "C3","C3 up","D3","D3 up","E3","F3","F3 up","G3","G3 up","A3","A3 up","B3",
@@ -28,13 +29,11 @@ for(let j=65;j<91;j++)
 		{
 			if(i==0)
 			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+piano_name[piano_pointer]+'</span></label>';
+				piano_body_text += '<span class="channel_description">'+piano_name[piano_pointer]+'</span>';
 				piano_pointer++;
 			}
-			else
-			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
+			
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
@@ -53,13 +52,11 @@ for(let j=65;j<91;j++)
 		{
 			if(i==0)
 			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+piano_name[piano_pointer]+'</span></label>';
+				piano_body_text += '<span class="channel_description">'+piano_name[piano_pointer]+'</span>';
 				piano_pointer++;
 			}
-			else
-			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
+			
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
@@ -77,13 +74,11 @@ for(let j=65;j<91;j++)
 		{
 			if(i==0)
 			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+piano_name[piano_pointer]+'</span></label>';
+				piano_body_text += '<span class="channel_description">'+piano_name[piano_pointer]+'</span>';
 				piano_pointer++;
 			}
-			else
-			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
+			
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
@@ -101,13 +96,11 @@ for(let j=65;j<76;j++)
 		{
 			if(i==0)
 			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+piano_name[piano_pointer]+'</span></label>';
+				piano_body_text += '<span class="channel_description">'+piano_name[piano_pointer]+'</span>';
 				piano_pointer++;
 			}
-			else
-			{
-				piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
+			
+			piano_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowPiano'+i+String.fromCharCode(j)+'" name="rowPiano'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{

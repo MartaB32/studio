@@ -2,6 +2,8 @@
 
 <script>
 let bass_body_text = '';
+
+bass_body_text += '<span class="channel_description" style="visibility: hidden"></span>';
 for(let i=0;i<20;i++)
 {
 	bass_body_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowBass'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
@@ -23,14 +25,11 @@ for(let j=65;j<91;j++)
 		{
 			if(i==0)
 			{
-				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+bass_name[bass_pointer]+'</span></label>';
-				console.log(bass_pointer);
+				bass_body_text += '<span class="channel_description">'+bass_name[bass_pointer]+'</span>';
 				bass_pointer++;
 			}
-			else
-			{
-				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
+			
+			bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{
@@ -49,13 +48,11 @@ for(let j=65;j<70;j++)
 		{
 			if(i==0)
 			{
-				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+bass_name[bass_pointer]+'</span></label>';
+				bass_body_text += '<span class="channel_description">'+bass_name[bass_pointer]+'</span>';
 				bass_pointer++;
 			}
-			else
-			{
-				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
+			
+			bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
 		}
 		else
 		{

@@ -2,6 +2,8 @@
 
 <script>
 let drums_body_text = '';
+
+drums_body_text += '<span class="channel_description" style="visibility: hidden"></span>';
 for(let i=0;i<20;i++)
 {
 	drums_body_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="row'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
@@ -20,13 +22,11 @@ for(let j=65;j<69;j++)
 		{
 			if(i==0)
 			{
-				drums_body_text += '<label class="pianoroll-box"><input type="checkbox" id="row'+i+String.fromCharCode(j)+'" name="row'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+drums_name[drums_pointer]+'</span></label>';
+				drums_body_text += '<span class="channel_description">'+drums_name[drums_pointer]+'</span>';
 				drums_pointer++;
 			}
-			else
-			{
+			
 				drums_body_text += '<label class="pianoroll-box"><input type="checkbox" id="row'+i+String.fromCharCode(j)+'" name="row'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-			}
 		}
 		else
 		{
