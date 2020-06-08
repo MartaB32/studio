@@ -201,8 +201,8 @@ canvas {
 
 input[type=checkbox]
 {
-	transform: scale(2);
 	color: #404040;
+	transform: scale(2);
 }
 input[type=checkbox]:hover
 {
