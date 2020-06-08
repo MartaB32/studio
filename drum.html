@@ -41,13 +41,16 @@ document.getElementById("drum_body").insertAdjacentHTML("afterbegin", drum_body_
 </script>
 
 		<br>
-		<button onclick="playFromArrayDrum()">Play</button>
-		<button onclick="stopDrum()">Stop</button>
-		<input type="checkbox" id="loopEnabled"> Loop
-		<br>
-		Speed: 
-		<button onclick="changeTimeDrum()">Set</button>
+		<span class="play_settings">
+		<button class="playback_button" onclick="playFromArray()">Play</button>
+		<button class="playback_button" onclick="stop()">Stop</button>
+		<input type="checkbox" id="loopEnabled"><label> Loop</label></input>
+		</span>
+		
+		<span class="speed_settings">Speed:  
 		<input type="number" id="time" value="500"></input>
+		<button class="playback_button" onclick="changeTime()">Set</button>
+		</span>
 		
 		
 		

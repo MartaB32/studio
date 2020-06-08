@@ -44,13 +44,16 @@ document.getElementById("guitar_body").insertAdjacentHTML("afterbegin", guitar_b
 </script>
 
 		<br>
-		<button onclick="playFromArrayGuitar()">Play</button>
-		<button onclick="stopGuitar()">Stop</button>
-		<input type="checkbox" id="loopEnabled"> Loop
-		<br>
-		Speed: 
-		<button onclick="changeTimeGuitar()">Set</button>
+		<span class="play_settings">
+		<button class="playback_button" onclick="playFromArray()">Play</button>
+		<button class="playback_button" onclick="stop()">Stop</button>
+		<input type="checkbox" id="loopEnabled"><label> Loop</label></input>
+		</span>
+		
+		<span class="speed_settings">Speed:  
 		<input type="number" id="time" value="500"></input>
+		<button class="playback_button" onclick="changeTime()">Set</button>
+		</span>
 		
 		<div style="display:none;">	
 	<audio controls id="index_A2" src="pianoroll/sample/Guitar/index_A2.mp3"></audio>
