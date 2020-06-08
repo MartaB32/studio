@@ -1,85 +1,589 @@
-<span id="guitar_body"></span>
-
-<script>
-let guitar_body_text = '';
-
-guitar_body_text += '<span class="channel_description" style="visibility: hidden"></span>';
-for(let i=0;i<20;i++)
-{
-	guitar_body_text += '<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar'+i+'-current" disabled><span class="pianoroll-box-check indicator"></span></label>';
-}
-guitar_body_text += '<br>';
-
-//pianoroll
-let guitar_name =  [		  "E2","F2","G2","A2","B2",
-					"C3","D3","E3","F3","G3","A3","B3",
-					"C4","D4","E4","F4","G4","A4","B4",
-					"C5","D5","E5","F5","G5"];
-let guitar_pointer=0;
-//65='A'
-for(let j=65;j<89;j++)
-{
-	for(let i=0;i<20;i++)
-	{
-		if(i<10)
-		{
-			if(i==0)
-			{
-				guitar_body_text += '<span class="channel_description">'+guitar_name[guitar_pointer]+'</span>';
-				guitar_pointer++;
-			}
-
-				guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
-		}
-		else
-		{
-			guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+(i-10)+'A"><span class="pianoroll-box-check"></span></label>';
-		}
-	}
-	guitar_body_text += '<br>';
-}
-
-document.getElementById("guitar_body").insertAdjacentHTML("afterbegin", guitar_body_text);
-
-</script>
-
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar0-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar1-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar2-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar3-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar4-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar5-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar6-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar7-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar8-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar9-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar10-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar11-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar12-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar13-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar14-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar15-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar16-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar17-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar18-current" disabled><span class="pianoroll-box-check indicator"></span></label>
+		<label class="pianoroll-box indicator-box"><input type="checkbox" id="rowGuitar19-current" disabled><span class="pianoroll-box-check indicator"></span></label>
 		<br>
-		<span class="play_settings">
-		<button class="playback_button" onclick="playFromArray()">Play</button>
-		<button class="playback_button" onclick="stop()">Stop</button>
-		<input type="checkbox" id="loopEnabled"><label> Loop</label></input>
-		</span>
 		
-		<span class="speed_settings">Speed:  
+		<!--pianoroll-->
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0A" name="rowGuitar0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1A" name="rowGuitar1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2A" name="rowGuitar2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3A" name="rowGuitar3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4A" name="rowGuitar4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5A" name="rowGuitar5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6A" name="rowGuitar6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7A" name="rowGuitar7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8A" name="rowGuitar8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9A" name="row9A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10A" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11A" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12A" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13A" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14A" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15A" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16A" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17A" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18A" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19A" name="row9A"><span class="pianoroll-box-check"></span></label>
+		<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0B" name="row0B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1B" name="row1B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2B" name="row2B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3B" name="row3B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4B" name="row4B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5B" name="row5B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6B" name="row6B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7B" name="row7B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8B" name="row8B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9B" name="row9B"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10B" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11B" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12B" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13B" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14B" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15B" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16B" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17B" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18B" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19B" name="row9A"><span class="pianoroll-box-check"></span></label>
+		<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0C" name="row0C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1C" name="row1C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2C" name="row2C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3C" name="row3C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4C" name="row4C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5C" name="row5C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6C" name="row6C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7C" name="row7C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8C" name="row8C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9C" name="row9C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10C" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11C" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12C" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13C" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14C" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15C" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16C" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17C" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18C" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19C" name="row9A"><span class="pianoroll-box-check"></span></label>
+		
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0D" name="row0C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1D" name="row1C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2D" name="row2C"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3D" name="row3D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4D" name="row4D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5D" name="row5D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6D" name="row6D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7D" name="row7D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8D" name="row8D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9D" name="row9D"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10D" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11D" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12D" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13D" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14D" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15D" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16D" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17D" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18D" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19D" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0E" name="row0E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1E" name="row1E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2E" name="row2E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3E" name="row3E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4E" name="row4E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5E" name="row5E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6E" name="row6E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7E" name="row7E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8E" name="row8E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9E" name="row9E"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10E" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11E" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12E" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13E" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14E" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15E" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16E" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17E" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18E" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19E" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0F" name="row0F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1F" name="row1F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2F" name="row2F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3F" name="row3F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4F" name="row4F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5F" name="row5F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6F" name="row6F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7F" name="row7F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8F" name="row8F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9F" name="row9F"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10F" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11F" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12F" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13F" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14F" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15F" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16F" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17F" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18F" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19F" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0G" name="row0G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1G" name="row1G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2G" name="row2G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3G" name="row3G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4G" name="row4G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5G" name="row5G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6G" name="row6G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7G" name="row7G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8G" name="row8G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9G" name="row9G"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10G" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11G" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12G" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13G" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14G" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15G" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16G" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17G" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18G" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19G" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0H" name="row0H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1H" name="row1H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2H" name="row2H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3H" name="row3H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4H" name="row4H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5H" name="row5H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6H" name="row6H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7H" name="row7H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8H" name="row8H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9H" name="row9H"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10H" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11H" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12H" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13H" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14H" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15H" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16H" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17H" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18H" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19H" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0I" name="row0I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1I" name="row1I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2I" name="row2I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3I" name="row3I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4I" name="row4I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5I" name="row5I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6I" name="row6I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7I" name="row7I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8I" name="row8I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9I" name="row9I"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10I" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11I" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12I" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13I" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14I" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15I" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16I" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17I" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18I" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19I" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0J" name="row0J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1J" name="row1J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2J" name="row2J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3J" name="row3J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4J" name="row4J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5J" name="row5J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6J" name="row6J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7J" name="row7J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8J" name="row8J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9J" name="row9J"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10J" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11J" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12J" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13J" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14J" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15J" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16J" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17J" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18J" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19J" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0K" name="row0K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1K" name="row1K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2K" name="row2K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3K" name="row3K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4K" name="row4K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5K" name="row5K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6K" name="row6K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7K" name="row7K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8K" name="row8K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9K" name="row9K"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10K" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11K" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12K" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13K" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14K" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15K" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16K" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17K" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18K" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19K" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0L" name="row0L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1L" name="row1L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2L" name="row2L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3L" name="row3L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4L" name="row4L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5L" name="row5L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6L" name="row6L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7L" name="row7L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8L" name="row8L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9L" name="row9L"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10L" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11L" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12L" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13L" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14L" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15L" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16L" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17L" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18L" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19L" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0M" name="row0M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1M" name="row1M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2M" name="row2M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3M" name="row3M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4M" name="row4M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5M" name="row5M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6M" name="row6M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7M" name="row7M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8M" name="row8M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9M" name="row9M"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10M" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11M" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12M" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13M" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14M" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15M" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16M" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17M" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18M" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19M" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0N" name="row0N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1N" name="row1N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2N" name="row2N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3N" name="row3N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4N" name="row4N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5N" name="row5N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6N" name="row6N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7N" name="row7N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8N" name="row8N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9N" name="row9N"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10N" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11N" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12N" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13N" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14N" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15N" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16N" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17N" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18N" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19N" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0O" name="row0O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1O" name="row1O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2O" name="row2O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3O" name="row3O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4O" name="row4O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5O" name="row5O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6O" name="row6O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7O" name="row7O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8O" name="row8O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9O" name="row9O"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10O" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11O" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12O" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13O" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14O" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15O" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16O" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17O" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18O" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19O" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0P" name="row0P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1P" name="row1P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2P" name="row2P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3P" name="row3P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4P" name="row4P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5P" name="row5P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6P" name="row6P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7P" name="row7P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8P" name="row8P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9P" name="row9P"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10P" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11P" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12P" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13P" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14P" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15P" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16P" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17P" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18P" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19P" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0R" name="row0R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1R" name="row1R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2R" name="row2R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3R" name="row3R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4R" name="row4R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5R" name="row5R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6R" name="row6R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7R" name="row7R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8R" name="row8R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9R" name="row9R"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10R" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11R" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12R" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13R" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14R" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15R" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16R" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17R" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18R" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19R" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0S" name="row0S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1S" name="row1S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2S" name="row2S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3S" name="row3S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4S" name="row4S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5S" name="row5S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6S" name="row6S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7S" name="row7S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8S" name="row8S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9S" name="row9S"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10S" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11S" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12S" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13S" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14S" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15S" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16S" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17S" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18S" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19S" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0T" name="row0T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1T" name="row1T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2T" name="row2T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3T" name="row3T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4T" name="row4T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5T" name="row5T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6T" name="row6T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7T" name="row7T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8T" name="row8T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9T" name="row9T"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10T" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11T" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12T" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13T" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14T" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15T" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16T" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17T" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18T" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19T" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0U" name="row0U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1U" name="row1U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2U" name="row2U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3U" name="row3U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4U" name="row4U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5U" name="row5U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6U" name="row6U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7U" name="row7U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8U" name="row8U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9U" name="row9U"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10U" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11U" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12U" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13U" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14U" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15U" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16U" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17U" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18U" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19U" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0W" name="row0W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1W" name="row1W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2W" name="row2W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3W" name="row3W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4W" name="row4W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5W" name="row5W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6W" name="row6W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7W" name="row7W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8W" name="row8W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9W" name="row9W"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10W" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11W" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12W" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13W" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14W" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15W" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16W" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17W" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18W" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19W" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0X" name="row0X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1X" name="row1X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2X" name="row2X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3X" name="row3X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4X" name="row4X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5X" name="row5X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6X" name="row6X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7X" name="row7X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8X" name="row8X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9X" name="row9X"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10X" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11X" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12X" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13X" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14X" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15X" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16X" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17X" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18X" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19X" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0Y" name="row0Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1Y" name="row1Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2Y" name="row2Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3Y" name="row3Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4Y" name="row4Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5Y" name="row5Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6Y" name="row6Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7Y" name="row7Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8Y" name="row8Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9Y" name="row9Y"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10Y" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11Y" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12Y" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13Y" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14Y" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15Y" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16Y" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17Y" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18Y" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19Y" name="row9A"><span class="pianoroll-box-check"></span></label>
+				<br>
+		
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar0Z" name="row0Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar1Z" name="row1Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar2Z" name="row2Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar3Z" name="row3Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar4Z" name="row4Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar5Z" name="row5Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar6Z" name="row6Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar7Z" name="row7Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar8Z" name="row8Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar9Z" name="row9Z"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar10Z" name="row0A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar11Z" name="row1A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar12Z" name="row2A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar13Z" name="row3A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar14Z" name="row4A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar15Z" name="row5A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar16Z" name="row6A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar17Z" name="row7A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar18Z" name="row8A"><span class="pianoroll-box-check"></span></label>
+		<label class="pianoroll-box"><input type="checkbox" id="rowGuitar19Z" name="row9A"><span class="pianoroll-box-check"></span></label>
+		
+		<br>
+		<br>
+		<button onclick="playFromArrayGuitar()">Play</button>
+		<button onclick="stopGuitar()">Stop</button>
+		<input type="checkbox" id="loopEnabled"> Loop
+		<br>
+		Speed: 
+		<button onclick="changeTimeGuitar()">Set</button>
 		<input type="number" id="time" value="500"></input>
-		<button class="playback_button" onclick="changeTime()">Set</button>
-		</span>
 		
 		<div style="display:none;">	
-	<audio controls id="index_A2" src="pianoroll/sample/Guitar/index_A2.mp3"></audio>
-	<audio controls id="index_A3" src="pianoroll/sample/Guitar/index_A3.mp3"></audio>
-	<audio controls id="index_A4" src="pianoroll/sample/Guitar/index_A4.mp3"></audio>	
-	<audio controls id="index_B2" src="pianoroll/sample/Guitar/index_B2.mp3"></audio>
-	<audio controls id="index_B3" src="pianoroll/sample/Guitar/index_B3.mp3"></audio>
-	<audio controls id="index_B4" src="pianoroll/sample/Guitar/index_B4.mp3"></audio>	
-	<audio controls id="index_Csh3" src="pianoroll/sample/Guitar/index_Csh3.mp3"></audio>
-	<audio controls id="index_Csh4" src="pianoroll/sample/Guitar/index_Csh4.mp3"></audio>
-	<audio controls id="index_Csh5" src="pianoroll/sample/Guitar/index_Csh5.mp3"></audio>	
-	<audio controls id="index_D3" src="pianoroll/sample/Guitar/index_D3.mp3"></audio>
-	<audio controls id="index_D4" src="pianoroll/sample/Guitar/index_D4.mp3"></audio>
-	<audio controls id="index_D5" src="pianoroll/sample/Guitar/index_D5.mp3"></audio>	
-	<audio controls id="index_E2" src="pianoroll/sample/Guitar/index_E2.mp3"></audio>
-	<audio controls id="index_E3" src="pianoroll/sample/Guitar/index_E3.mp3"></audio>
-	<audio controls id="index_E4" src="pianoroll/sample/Guitar/index_E4.mp3"></audio>	
-	<audio controls id="index_E5" src="pianoroll/sample/Guitar/index_E5.mp3"></audio>
-	<audio controls id="index_Fsh2" src="pianoroll/sample/Guitar/index_Fsh2.mp3"></audio>
-	<audio controls id="index_Fsh3" src="pianoroll/sample/Guitar/index_Fsh3.mp3"></audio>	
-	<audio controls id="index_Fsh4" src="pianoroll/sample/Guitar/index_Fsh4.mp3"></audio>
-	<audio controls id="index_Fsh5" src="pianoroll/sample/Guitar/index_Fsh5.mp3"></audio>
-	<audio controls id="index_Gsh2" src="pianoroll/sample/Guitar/index_Gsh2.mp3"></audio>	
-	<audio controls id="index_G3" src="pianoroll/sample/Guitar/index_G3.mp3"></audio>	
-	<audio controls id="index_G4" src="pianoroll/sample/Guitar/index_G4.mp3"></audio>
-	<audio controls id="index_G5" src="pianoroll/sample/Guitar/index_G5.mp3"></audio>
+	<audio controls id="index A2" src="pianoroll/sample/Guitar/index A2.mp3"></audio>
+	<audio controls id="index A3" src="pianoroll/sample/Guitar/index A3.mp3"></audio>
+	<audio controls id="index A4" src="pianoroll/sample/Guitar/index A4.mp3"></audio>	
+	<audio controls id="index B2" src="pianoroll/sample/Guitar/index B2.mp3"></audio>
+	<audio controls id="index B3" src="pianoroll/sample/Guitar/index B3.mp3"></audio>
+	<audio controls id="index B4" src="pianoroll/sample/Guitar/index B4.mp3"></audio>	
+	<audio controls id="index Csh3" src="pianoroll/sample/Guitar/index Csh3.mp3"></audio>
+	<audio controls id="index Csh4" src="pianoroll/sample/Guitar/index Csh4.mp3"></audio>
+	<audio controls id="index Csh5" src="pianoroll/sample/Guitar/index Csh5.mp3"></audio>	
+	<audio controls id="index D3" src="pianoroll/sample/Guitar/index D3.mp3"></audio>
+	<audio controls id="index D4" src="pianoroll/sample/Guitar/index D4.mp3"></audio>
+	<audio controls id="index D5" src="pianoroll/sample/Guitar/index D5.mp3"></audio>	
+	<audio controls id="index E2" src="pianoroll/sample/Guitar/index E2.mp3"></audio>
+	<audio controls id="index E3" src="pianoroll/sample/Guitar/index E3.mp3"></audio>
+	<audio controls id="index E4" src="pianoroll/sample/Guitar/index E4.mp3"></audio>	
+	<audio controls id="index E5" src="pianoroll/sample/Guitar/index E5.mp3"></audio>
+	<audio controls id="index Fsh2" src="pianoroll/sample/Guitar/index Fsh2.mp3"></audio>
+	<audio controls id="index Fsh3" src="pianoroll/sample/Guitar/index Fsh3.mp3"></audio>	
+	<audio controls id="index Fsh4" src="pianoroll/sample/Guitar/index Fsh4.mp3"></audio>
+	<audio controls id="index Fsh5" src="pianoroll/sample/Guitar/index Fsh5.mp3"></audio>
+	<audio controls id="index Gsh2" src="pianoroll/sample/Guitar/index Gsh2.mp3"></audio>	
+	<audio controls id="index G3" src="pianoroll/sample/Guitar/index G3.mp3"></audio>	
+	<audio controls id="index G4" src="pianoroll/sample/Guitar/index G4.mp3"></audio>
+	<audio controls id="index G5" src="pianoroll/sample/Guitar/index G5.mp3"></audio>
 	</div>
 		
 		
