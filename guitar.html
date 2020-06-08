@@ -9,6 +9,11 @@ for(let i=0;i<20;i++)
 guitar_body_text += '<br>';
 
 //pianoroll
+let guitar_name =  [		  "E2","F2","G2","A2","B2",
+					"C3","D3","E3","F3","G3","A3","B3",
+					"C4","D4","E4","F4","G4","A4","B4",
+					"C5","D5","E5","F5","G5"];
+let guitar_pointer=0;
 //65='A'
 for(let j=65;j<89;j++)
 {
@@ -16,7 +21,15 @@ for(let j=65;j<89;j++)
 	{
 		if(i<10)
 		{
-			guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			if(i==0)
+			{
+				guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+guitar_name[guitar_pointer]+'</span></label>';
+				guitar_pointer++;
+			}
+			else
+			{
+				guitar_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowGuitar'+i+String.fromCharCode(j)+'" name="rowGuitar'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			}
 		}
 		else
 		{
@@ -40,30 +53,30 @@ document.getElementById("guitar_body").insertAdjacentHTML("afterbegin", guitar_b
 		<input type="number" id="time" value="500"></input>
 		
 		<div style="display:none;">	
-	<audio controls id="index A2" src="pianoroll/sample/Guitar/index A2.mp3"></audio>
-	<audio controls id="index A3" src="pianoroll/sample/Guitar/index A3.mp3"></audio>
-	<audio controls id="index A4" src="pianoroll/sample/Guitar/index A4.mp3"></audio>	
-	<audio controls id="index B2" src="pianoroll/sample/Guitar/index B2.mp3"></audio>
-	<audio controls id="index B3" src="pianoroll/sample/Guitar/index B3.mp3"></audio>
-	<audio controls id="index B4" src="pianoroll/sample/Guitar/index B4.mp3"></audio>	
-	<audio controls id="index Csh3" src="pianoroll/sample/Guitar/index Csh3.mp3"></audio>
-	<audio controls id="index Csh4" src="pianoroll/sample/Guitar/index Csh4.mp3"></audio>
-	<audio controls id="index Csh5" src="pianoroll/sample/Guitar/index Csh5.mp3"></audio>	
-	<audio controls id="index D3" src="pianoroll/sample/Guitar/index D3.mp3"></audio>
-	<audio controls id="index D4" src="pianoroll/sample/Guitar/index D4.mp3"></audio>
-	<audio controls id="index D5" src="pianoroll/sample/Guitar/index D5.mp3"></audio>	
-	<audio controls id="index E2" src="pianoroll/sample/Guitar/index E2.mp3"></audio>
-	<audio controls id="index E3" src="pianoroll/sample/Guitar/index E3.mp3"></audio>
-	<audio controls id="index E4" src="pianoroll/sample/Guitar/index E4.mp3"></audio>	
-	<audio controls id="index E5" src="pianoroll/sample/Guitar/index E5.mp3"></audio>
-	<audio controls id="index Fsh2" src="pianoroll/sample/Guitar/index Fsh2.mp3"></audio>
-	<audio controls id="index Fsh3" src="pianoroll/sample/Guitar/index Fsh3.mp3"></audio>	
-	<audio controls id="index Fsh4" src="pianoroll/sample/Guitar/index Fsh4.mp3"></audio>
-	<audio controls id="index Fsh5" src="pianoroll/sample/Guitar/index Fsh5.mp3"></audio>
-	<audio controls id="index Gsh2" src="pianoroll/sample/Guitar/index Gsh2.mp3"></audio>	
-	<audio controls id="index G3" src="pianoroll/sample/Guitar/index G3.mp3"></audio>	
-	<audio controls id="index G4" src="pianoroll/sample/Guitar/index G4.mp3"></audio>
-	<audio controls id="index G5" src="pianoroll/sample/Guitar/index G5.mp3"></audio>
+	<audio controls id="index_A2" src="pianoroll/sample/Guitar/index_A2.mp3"></audio>
+	<audio controls id="index_A3" src="pianoroll/sample/Guitar/index_A3.mp3"></audio>
+	<audio controls id="index_A4" src="pianoroll/sample/Guitar/index_A4.mp3"></audio>	
+	<audio controls id="index_B2" src="pianoroll/sample/Guitar/index_B2.mp3"></audio>
+	<audio controls id="index_B3" src="pianoroll/sample/Guitar/index_B3.mp3"></audio>
+	<audio controls id="index_B4" src="pianoroll/sample/Guitar/index_B4.mp3"></audio>	
+	<audio controls id="index_Csh3" src="pianoroll/sample/Guitar/index_Csh3.mp3"></audio>
+	<audio controls id="index_Csh4" src="pianoroll/sample/Guitar/index_Csh4.mp3"></audio>
+	<audio controls id="index_Csh5" src="pianoroll/sample/Guitar/index_Csh5.mp3"></audio>	
+	<audio controls id="index_D3" src="pianoroll/sample/Guitar/index_D3.mp3"></audio>
+	<audio controls id="index_D4" src="pianoroll/sample/Guitar/index_D4.mp3"></audio>
+	<audio controls id="index_D5" src="pianoroll/sample/Guitar/index_D5.mp3"></audio>	
+	<audio controls id="index_E2" src="pianoroll/sample/Guitar/index_E2.mp3"></audio>
+	<audio controls id="index_E3" src="pianoroll/sample/Guitar/index_E3.mp3"></audio>
+	<audio controls id="index_E4" src="pianoroll/sample/Guitar/index_E4.mp3"></audio>	
+	<audio controls id="index_E5" src="pianoroll/sample/Guitar/index_E5.mp3"></audio>
+	<audio controls id="index_Fsh2" src="pianoroll/sample/Guitar/index_Fsh2.mp3"></audio>
+	<audio controls id="index_Fsh3" src="pianoroll/sample/Guitar/index_Fsh3.mp3"></audio>	
+	<audio controls id="index_Fsh4" src="pianoroll/sample/Guitar/index_Fsh4.mp3"></audio>
+	<audio controls id="index_Fsh5" src="pianoroll/sample/Guitar/index_Fsh5.mp3"></audio>
+	<audio controls id="index_Gsh2" src="pianoroll/sample/Guitar/index_Gsh2.mp3"></audio>	
+	<audio controls id="index_G3" src="pianoroll/sample/Guitar/index_G3.mp3"></audio>	
+	<audio controls id="index_G4" src="pianoroll/sample/Guitar/index_G4.mp3"></audio>
+	<audio controls id="index_G5" src="pianoroll/sample/Guitar/index_G5.mp3"></audio>
 	</div>
 		
 		

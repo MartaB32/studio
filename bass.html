@@ -9,6 +9,11 @@ for(let i=0;i<20;i++)
 bass_body_text += '<br>';
 
 //pianoroll
+let bass_name = ["C1","C1 up","E1","E1 up","F1","G1","G1 up","B1","B1 up",
+				 "C2","C2 up","D2","D2 up","F2","F2 up","A2","A2 up",
+				 "C3","C3 up","E3","E3 up","G3","G3 up","A3","A3 up",
+				 "C4","C4 up","E4","E4 up","A4","A4 up"];
+let bass_pointer=0;
 //65='A'
 for(let j=65;j<91;j++)
 {
@@ -16,7 +21,16 @@ for(let j=65;j<91;j++)
 	{
 		if(i<10)
 		{
-			bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			if(i==0)
+			{
+				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+bass_name[bass_pointer]+'</span></label>';
+				console.log(bass_pointer);
+				bass_pointer++;
+			}
+			else
+			{
+				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			}
 		}
 		else
 		{
@@ -33,7 +47,15 @@ for(let j=65;j<70;j++)
 	{
 		if(i<10)
 		{
-			bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+'A'+String.fromCharCode(j)+'" name="rowBass'+i+'A'+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			if(i==0)
+			{
+				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+bass_name[bass_pointer]+'</span></label>';
+				bass_pointer++;
+			}
+			else
+			{
+				bass_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowBass'+i+String.fromCharCode(j)+'" name="rowBass'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			}
 		}
 		else
 		{

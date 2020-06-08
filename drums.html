@@ -9,6 +9,8 @@ for(let i=0;i<20;i++)
 drums_body_text += '<br>';
 
 //pianoroll
+let drums_name = ["kick","snare","hat","crash"];
+let drums_pointer=0;
 //65='A'
 for(let j=65;j<69;j++)
 {
@@ -16,7 +18,15 @@ for(let j=65;j<69;j++)
 	{
 		if(i<10)
 		{
-			drums_body_text += '<label class="pianoroll-box"><input type="checkbox" id="row'+i+String.fromCharCode(j)+'" name="row'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			if(i==0)
+			{
+				drums_body_text += '<label class="pianoroll-box"><input type="checkbox" id="row'+i+String.fromCharCode(j)+'" name="row'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+drums_name[drums_pointer]+'</span></label>';
+				drums_pointer++;
+			}
+			else
+			{
+				drums_body_text += '<label class="pianoroll-box"><input type="checkbox" id="row'+i+String.fromCharCode(j)+'" name="row'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			}
 		}
 		else
 		{
@@ -47,7 +57,8 @@ document.getElementById("drums_body").insertAdjacentHTML("afterbegin", drums_bod
 	<audio controls id="crash" src="pianoroll/sample/Drums/Crash(6).mp3"></audio>
 	</div>
 	
-	<script>function sample_play(sample,timeout) {
+	<script>
+	function sample_play(sample,timeout) {
 	var audio = new Audio();
 	audio.src = sample.src;
 	setTimeout(function() {

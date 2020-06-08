@@ -9,6 +9,8 @@ for(let i=0;i<20;i++)
 drum_body_text += '<br>';
 
 //pianoroll
+let drum_name = ["doble","hi1","hi2","hi3","lo1","lo2","lo3","loking","mid1","mid2","mid3","mid4","tick"];
+let drum_pointer=0;
 //65='A'
 for(let j=65;j<78;j++)
 {
@@ -16,7 +18,15 @@ for(let j=65;j<78;j++)
 	{
 		if(i<10)
 		{
-			drum_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowDrum'+i+String.fromCharCode(j)+'" name="rowDrum'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			if(i==0)
+			{
+				drum_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowDrum'+i+String.fromCharCode(j)+'" name="rowDrum'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check" style="font-size: 15px;">'+drum_name[drum_pointer]+'</span></label>';
+				drum_pointer++;
+			}
+			else
+			{
+				drum_body_text += '<label class="pianoroll-box"><input type="checkbox" id="rowDrum'+i+String.fromCharCode(j)+'" name="rowDrum'+i+String.fromCharCode(j)+'"><span class="pianoroll-box-check"></span></label>';
+			}
 		}
 		else
 		{
