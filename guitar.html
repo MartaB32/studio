@@ -569,13 +569,16 @@
 		
 		</p>
 		<br>
+		<span class="playback_controls">
 		<button onclick="playFromArrayGuitar()">Play</button>
 		<button onclick="stopGuitar()">Stop</button>
 		<input type="checkbox" id="loopEnabled"> Loop
-		<br>
+		</span>
+		<span class="speed_controls">
 		Speed: 
 		<button onclick="changeTimeGuitar()">Set</button>
 		<input type="number" id="time" value="500"></input>
+		</span>
 		
 		<div style="display:none;">	
 	<audio controls id="index A2" src="pianoroll/sample/Guitar/index A2.mp3"></audio>

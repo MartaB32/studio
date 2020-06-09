@@ -1983,13 +1983,16 @@
 		
 		</p>
 		<br>
+		<span class="playback_controls">
 		<button onclick="playFromArrayPiano()">Play</button>
 		<button onclick="stopPiano()">Stop</button>
 		<input type="checkbox" id="loopEnabled"> Loop
-		<br>
+		</span>
+		<span class="speed_controls">
 		Speed: 
 		<button onclick="changeTimePiano()">Set</button>
 		<input type="number" id="time" value="500"></input>
+		</span>
 				
 					<div style="display:none;">	
 	<audio controls id="a1" src="pianoroll/sample/Piano/a1.mp3"></audio>
